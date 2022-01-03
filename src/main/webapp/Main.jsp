@@ -187,9 +187,9 @@
     <h1>Upcoming models</h1>
     <table>
         <tr>
-            <th><img src="X5Model.jpg" width="400px" height="300px"></th>
-            <th><img src="car3.jpg" width="400px" height="300px"></th>
-            <th><img src="car4.jpg" width="400px" height="300px"></th>
+            <th><img src="images/X5Model.jpg" width="400px" height="300px"></th>
+            <th><img src="images/car3.jpg" width="400px" height="300px"></th>
+            <th><img src="images/car4.jpg" width="400px" height="300px"></th>
         </tr>
     </table>
 
