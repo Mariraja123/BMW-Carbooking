@@ -51,11 +51,9 @@ List<CarProduct> listproduct=dao.showview();
                                         <span>carmodel : <%=carProduct.getCarModel()%> </span><br>
                                         <span>cartype : Rs.<%=carProduct.getCarType() %> </span><br>
                                         <span>fueltype: <%=carProduct.getFuelType() %></span><br>
-                                        <%=carProduct.getPrice() %>">
-                                        <span> <form action = "Cardetails">
-                                         <input type = "text" value = <%=carProduct.getViewlink()%> name = "carlink" style = "visibility:hidden">
-                                         <input type = "submit">
-                                         </form></span>
+                                       <span> price:<%=carProduct.getPrice() %>"></span>
+                                       <a href="SelectCar.jsp?car_id=<%=carProduct.getCar_id() %>"><button>view</button></a>
+                                      
                                         
                                     </td>
                                 </tr>

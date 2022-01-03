@@ -57,7 +57,8 @@ CarProduct carProduct = dao.selectproduct(car);
                                           <span>Price:<%=carProduct.getPrice() %>"> </span>
                                           <%session.setAttribute("price", carProduct.getPrice()); %>
                                           <%session.setAttribute("car_id", carProduct.getCar_id()); %>
-                                         <a href="confirmcar.jsp?car_id=<%=carProduct.getCar_id() %>"> <button type="submit">Add to cart</button></a>
+                                        <button type="submit">Confirm booking</button>
+                                        <button>Cancel booking</button>
                                           
                                          </form></span>
                                         

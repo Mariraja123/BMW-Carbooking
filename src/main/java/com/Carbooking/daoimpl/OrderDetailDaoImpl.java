@@ -12,10 +12,10 @@ import com.connection.*;
 
 public class OrderDetailDaoImpl {
 
-	public static void insert(OrderDetail obj) throws ClassNotFoundException, SQLException
+	public void insert(OrderDetail obj) throws ClassNotFoundException, SQLException
     {
 		
-	String insert="insert into order_details (user_id,car_id,price)values(?,?,?)";
+	String insert="insert into order_details(user_id,car_id,price)values(?,?,?)";
 	Connection Con=Connectionutil.getDBconnection();
 	PreparedStatement stmt=Con.prepareStatement(insert);
 	stmt.setInt(1, obj.getUserId());

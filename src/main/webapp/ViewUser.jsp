@@ -13,11 +13,11 @@
   <% UserDetaildaoImpl dao= new UserDetaildaoImpl();
 	List<UserDetail> view=new ArrayList<UserDetail>();
 	view=UserDetaildaoImpl.alluser();%>
-          <h2 class="Userdetail">Car Products</h2>
+          <h2 class="Userdetail">User Detail</h2>
           
         
         <div class="recently added list">
-        <table>
+        <table border=1 >
             <tbody>
                 <tr>
                 <%int count=0;
@@ -29,11 +29,11 @@
                                 <tr>
                                      
                                     <td class="viewall">
-                                        <span>Type : <%=userdetail.getFirst_name()%> </span><br>
-                                        <span>Name : <%=userdetail.getCpassword()%>  </span><br>
-                                        <span>Color : <%=userdetail.getEmail()%> </span><br>
+                                        <span>Namee : <%=userdetail.getFirst_name()%> </span><br>
+                                        <span>password : <%=userdetail.getCpassword()%>  </span><br>
+                                        <span>Email : <%=userdetail.getEmail()%> </span><br>
                                       
-                                        <span>Qty: <%=userdetail.getPhoneno()%></span><br>
+                                        <span>phone number: <%=userdetail.getPhoneno()%></span><br>
                                             
                                        
                                     </td>
@@ -43,7 +43,7 @@
                             
                     </td>
                        <% count ++;
-                       if(count==3){ %> 
+                       if(count==5){ %> 
                     	   </tr>
                     	   <tr>              
                      <%count=0; }}%>  
