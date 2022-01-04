@@ -261,7 +261,7 @@ form .create-account:hover {
             <input type="text" placeholder="Email"  name="uname" required />
             <input type="password" placeholder="Password" name="upass" required>
             <button class="login" type="submit">Log In</button>
-            <a href="#">Forgot Password ?</a>
+            <a href="Forgetpassword.jsp">Forgot Password ?</a>
             <hr>
             <a href="Index.jsp">Create New Account</a>
           </form>

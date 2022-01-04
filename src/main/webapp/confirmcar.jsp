@@ -23,13 +23,10 @@ left: -400px;
 </style>
 </head>
 <body>
- <form action="cart" method="post">
-<%! CarProductDaoImpl dao=new CarProductDaoImpl();
-
-
-%>
-<%
-String carid = request.getParameter("car_id");
+ <form  method="post">
+<% CarProductDaoImpl dao=new CarProductDaoImpl();
+String carid =session.getAttribute("car_id").toString();
+System.out.println(carid);
 CarProduct car = new CarProduct(carid);
 CarProduct carProduct = dao.selectproduct(car);
 %>
@@ -55,10 +52,9 @@ CarProduct carProduct = dao.selectproduct(car);
                                         <span>cartype : Rs.<%=carProduct.getCarType() %> </span><br>
                                         <span>fueltype: <%=carProduct.getFuelType() %></span><br>
                                           <span>Price:<%=carProduct.getPrice() %>"> </span>
-                                          <%session.setAttribute("price", carProduct.getPrice()); %>
-                                          <%session.setAttribute("car_id", carProduct.getCar_id()); %>
-                                        <button type="submit">Confirm booking</button>
-                                        <button>Cancel booking</button>
+                                       <%session.setAttribute("carname", carProduct.getCar_name()); %>
+                                        <a href="CustomerDetail.jsp">confirm booking </a>
+                                        <a href="ShowProducts.jsp">Cancel booking</a>
                                           
                                          </form></span>
                                         

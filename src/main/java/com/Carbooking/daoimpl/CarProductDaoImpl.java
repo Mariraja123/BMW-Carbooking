@@ -160,13 +160,15 @@ public class CarProductDaoImpl {
      }
     	 public static CarProduct selectproduct(CarProduct obj) throws ClassNotFoundException, SQLException
     	 {
+    		 System.out.println("hai0");
     		 CarProduct cars=null;
     		 String search="Select * from car_details where car_id=?";
         	 Connection Con=Connectionutil.getDBconnection();
         	 PreparedStatement stmt1=Con.prepareStatement(search);
-        	
+        	 System.out.println("hai1");
         	stmt1.setString(1, obj.getCar_id());
         	 ResultSet rs=stmt1.executeQuery();
+        	 System.out.println("hai2");
         	 
         	 while(rs.next())
         	 {

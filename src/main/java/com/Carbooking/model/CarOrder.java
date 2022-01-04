@@ -5,13 +5,15 @@ import java.util.Date;
 import java.util.Objects;
 
 public class CarOrder {
+	
 	private int order_id;
 	private String car_id;
 	private String Carname;
 	private String status;
-	private Date Expecteddate;
+	private int Expecteddate;
+	private String address;
 	
-	public CarOrder(int order_id, String car_id, String carname, Date expecteddate) {
+	public CarOrder(int order_id, String car_id, String carname, int expecteddate) {
 		super();
 		this.order_id = order_id;
 		this.car_id = car_id;
@@ -19,13 +21,20 @@ public class CarOrder {
 		
 		this.Expecteddate = expecteddate;
 	}
-	public CarOrder(int order_id, String car_id, String carname,  Date expecteddate,String status) {
+	public CarOrder(int order_id, String car_id, String carname,String status,int expecteddate,String address) {
 		super();
 		this.order_id = order_id;
 		this.car_id = car_id;
 		Carname = carname;
-		this.Expecteddate = expecteddate;
 		this.status = status;
+		this.Expecteddate = expecteddate;
+		this.address=address;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
 	}
 	public CarOrder( String status,int order_id) {
 		super();
@@ -56,10 +65,10 @@ public class CarOrder {
 	public void setCarname(String carname) {
 		Carname = carname;
 	}
-	public Date getExpecteddate() {
+	public int getExpecteddate() {
 		return Expecteddate;
 	}
-	public void setExpecteddate(Date expecteddate) {
+	public void setExpecteddate(int expecteddate) {
 		Expecteddate = expecteddate;
 	}
 	public String getStatus() {
@@ -73,5 +82,14 @@ public class CarOrder {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	public CarOrder(int orderid, String carid, String carname2, int dates, String address2) {
+		// TODO Auto-generated constructor stub
+		this.order_id=orderid;
+		this.car_id=carid;
+		this.Carname=carname2;
+		this.Expecteddate=dates;
+		this.address=address2;
+	}
+	
 
 }

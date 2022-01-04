@@ -14,7 +14,7 @@ public class PriceDetailDaoImpl {
 	public static void insert(Pricedetail obj) throws ClassNotFoundException, SQLException
     {
 		
-	String insert="insert into price_detail (car_id,car_name,Exshowroom_price,road_tax,insurance,onroad_price)values(?,?,?,?,?,?)";
+	String insert="insert into price_detail (car_id,car_name,Exshowroom_price,road_tax,insurance,onroad_price)values(?,?,?,?,?,"+obj.getExshowroomprice()+obj.getRoadtax()+obj.getInsurance()+"=?)";
 //	String query="update price_detail set onroad_price=sum(exshowroom_price,road_tax) where car_id in ? and car_name=?";
 	Connection Con=Connectionutil.getDBconnection();
 	PreparedStatement stmt=Con.prepareStatement(insert);
@@ -97,19 +97,29 @@ public class PriceDetailDaoImpl {
 		  return onprice;
     }
     
+	 public  Pricedetail selectproduct(Pricedetail obj) throws ClassNotFoundException, SQLException
+	 {
+		
+		 Pricedetail cars=null;
+		 String search="Select * from Price_detail where car_id=?";
+    	 Connection Con=Connectionutil.getDBconnection();
+    	 PreparedStatement stmt1=Con.prepareStatement(search);
    
-    
-//    public static ResultSet insert(Pricedetail obj) throws ClassNotFoundException, SQLException
-//    {
-//	String insert="select exshowroom_price,road_tax,insurance from price_detail where carid in ?";
-//	String query="update price_detail set onroad_price=sum(exshowroom_price,road_tax,insurance) where car_id in ?";
-//	Connection Con=Connectionutil.getDBconnection();
-//	PreparedStatement stmt=Con.prepareStatement(insert);
-//	stmt.setString(1, obj.getCar_id());
-//	
-//	
-//	System.out.println(i);
-//    }
+    	stmt1.setString(1, obj.getCar_id());
+    	 ResultSet rs=stmt1.executeQuery();
+    	 System.out.println("hai2");
+    	 
+    	 while(rs.next())
+    	 {
+//    		 System.out.println(rs.getString(1)+" "+rs.getString(2)+" "+rs.getString(3)+" "+rs.getString(4)+" "+rs.getString(5)+" "+rs.getString(6));
+    		 cars =new Pricedetail(rs.getString(1),rs.getString(2),rs.getInt(3),rs.getInt(4),rs.getInt(5),rs.getInt(6));
+    		 return cars;
+    	 }
+return cars;
+	 
+
+ }
+  
   
 	
 

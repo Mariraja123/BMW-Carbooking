@@ -71,12 +71,12 @@ public class UserDetaildaoImpl {
 
 
 
-	public static void update(UserDetail obj) throws ClassNotFoundException, SQLException {
-		String log1 = "update user_details set cpassword=? where user_id=?";
+	public  void update(UserDetail obj) throws ClassNotFoundException, SQLException {
+		String log1 = "update user_details set cpassword=? where email=?";
 		Connection Con = Connectionutil.getDBconnection();
 		PreparedStatement stmt = Con.prepareStatement(log1);
 		stmt.setString(1, obj.getCpassword());
-		stmt.setInt(2, obj.getUserId());
+		stmt.setString(2, obj.getEmail());
 		int i = stmt.executeUpdate();
 		System.out.println(i + "updated");
 
@@ -129,7 +129,7 @@ public class UserDetaildaoImpl {
 		
 	}
 
-	public void updateWallet(UserDetail obj) {
+	public int updateWallet(UserDetail obj) {
 		// TODO Auto-generated method stub
 		String query="update user_details set userwallet=? where user_id in ?";
 		
@@ -144,6 +144,7 @@ public class UserDetaildaoImpl {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return 0;
 		
 	}
 	

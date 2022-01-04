@@ -25,7 +25,7 @@ public class OrderDetailDaoImpl {
 	int i=stmt.executeUpdate();
 	System.out.println(i+"saved on cart");
     }
-	public static int Findorder(OrderDetail obj) 
+	public  int Findorder() 
     {
    	// String search="Select Order_id from order_details where user_id=? and Car_id=?";
    	 String search1 = "select max(Order_id) from order_details";
@@ -60,16 +60,7 @@ public class OrderDetailDaoImpl {
 			return order;
 			 
     }
-//    public static void update(Orderdetail obj1) throws ClassNotFoundException, SQLException
-//    {
-//  	  String update="update order_details set phone=? where order_id=? ";
-//  	  Connection Con=Connectionutil.getDBconnection();
-//  	  PreparedStatement stmt=Con.prepareStatement(update);
-//  	 stmt.setInt(1, obj1.getUserId());
-//  	  stmt.setInt(2, obj1.getOrder_id());
-//  	  int i=stmt.executeUpdate();
-//  	  System.out.println(i);
-//    }
+
     public static void delete(OrderDetail obj1)
     {
     	String delete="delete from order_details where order_id=?";

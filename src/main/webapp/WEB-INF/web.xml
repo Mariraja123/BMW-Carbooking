@@ -3,6 +3,26 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
+	<servlet>
+		<servlet-name>ForgetServlet</servlet-name>
+		<display-name>ForgetServlet</display-name>
+		<description></description>
+		<servlet-class>com.Carbooking.controller.ForgetServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>CustomerDetailServlet</servlet-name>
+		<display-name>CustomerDetailServlet</display-name>
+		<description></description>
+		<servlet-class>com.Carbooking.controller.CustomerDetailServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ForgetServlet</servlet-name>
+		<url-pattern>/ForgetServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>CustomerDetailServlet</servlet-name>
+		<url-pattern>/CustomerDetailServlet</url-pattern>
+	</servlet-mapping>
 	
 
 	

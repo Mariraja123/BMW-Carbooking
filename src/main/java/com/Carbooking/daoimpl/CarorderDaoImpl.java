@@ -7,6 +7,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import com.Carbooking.model.CarOrder;
 import com.Carbooking.model.UserDetail;
 import com.connection.Connectionutil;
@@ -15,9 +18,13 @@ public class CarorderDaoImpl {
 
 	public static void insert(CarOrder obj)
 	{
-		String insert="insert into car_orders(Order_id,Car_id,Car_name,Expecteddate) values(?,?,?,?)";
+//		String update="update User_details set userwallet=(select userwallet from user_details where user_id=?)-? where user_id=?)";
+		String insert="insert into car_orders(Order_id,Car_id,Car_name,Expecteddate,address) values(?,?,?,sysdate+?,?)";
 		  Connection Con;
+		 
+		  
 		try {
+//			int amount1=(int) session.getAttribute("amount");
 			Con = Connectionutil.getDBconnection();
 			PreparedStatement stmt=Con.prepareStatement(insert);
 			stmt.setInt(1, obj.getOrder_id());
@@ -26,7 +33,10 @@ public class CarorderDaoImpl {
 		
 			
 //			stmt.setString(1, obj.getStatus());
-			stmt.setDate(4, new java.sql.Date (obj.getExpecteddate().getTime()));
+//			stmt.setInt(4, new java.sql.Date (obj.getExpecteddate().getTime()));
+			stmt.setInt(4, obj.getExpecteddate());
+			stmt.setString(5, obj.getAddress());
+//			stmt.setInt(6, amount1);
 			int i=stmt.executeUpdate();
 			System.out.println(i+"booked succesfully");
 		} catch (ClassNotFoundException e) {
@@ -46,7 +56,7 @@ public class CarorderDaoImpl {
 		ResultSet rs=stmt.executeQuery();
 		while(rs.next())
 		{
-		     CarOrder details=new CarOrder(rs.getInt(1),rs.getString(2),rs.getString(3),(rs.getDate(4)),rs.getString(5));
+		     CarOrder details=new CarOrder(rs.getInt(1),rs.getString(2),rs.getString(3),(rs.getInt(4)),rs.getString(5));
 		     viewbooking.add(details);
 		}
 		return viewbooking;
@@ -61,4 +71,5 @@ public class CarorderDaoImpl {
 		System.out.println(i + "updated");
 
 	}
+	
 }

@@ -12,7 +12,7 @@
 <style>
 img{
 width: 350px;
-padding:130px;
+padding:70px;
 }
 span{
 position : relative;

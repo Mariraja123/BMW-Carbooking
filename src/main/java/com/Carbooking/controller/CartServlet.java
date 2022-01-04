@@ -18,16 +18,16 @@ public class CartServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession session=req.getSession();
-		System.out.println("maari1");
+	
 		int userid=Integer.parseInt(session.getAttribute("userid").toString());
 		System.out.println(userid);
 		String carid=session.getAttribute("car_id").toString();
-		System.out.println(carid);
+		
 		int price=Integer.parseInt(session.getAttribute("price").toString());
-		System.out.println(price);
+		
 		OrderDetail obj=new OrderDetail(userid,carid,price);
 		OrderDetailDaoImpl orderdao=new OrderDetailDaoImpl();
-		System.out.println("maari5");
+	
 		try {
 			orderdao.insert(obj);
 			resp.sendRedirect("confirmcar.jsp");
