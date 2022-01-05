@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,17 +49,28 @@ public class CarorderDaoImpl {
 		}
 		
 	}
-	public static List<CarOrder> allbook(CarOrder obj1) throws ClassNotFoundException, SQLException {
+	public List<CarOrder> allbook()  {
 		List<CarOrder> viewbooking=new ArrayList<CarOrder>();
 		String allbook="Select * from Car_orders";
-		Connection Con = Connectionutil.getDBconnection();
-		PreparedStatement stmt=Con.prepareStatement(allbook);
-		ResultSet rs=stmt.executeQuery();
-		while(rs.next())
-		{
-		     CarOrder details=new CarOrder(rs.getInt(1),rs.getString(2),rs.getString(3),(rs.getInt(4)),rs.getString(5));
-		     viewbooking.add(details);
+		Connection Con;
+		try {
+			Con = Connectionutil.getDBconnection();
+			PreparedStatement stmt=Con.prepareStatement(allbook);
+			ResultSet rs=stmt.executeQuery();
+			System.out.println("haii");
+			while(rs.next())
+			{
+			     CarOrder details=new CarOrder(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5));
+			     viewbooking.add(details);
+			}
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+		
 		return viewbooking;
 	}
 	public static void update(CarOrder obj) throws ClassNotFoundException, SQLException {
@@ -71,5 +83,32 @@ public class CarorderDaoImpl {
 		System.out.println(i + "updated");
 
 	}
-	
+	public static  List<CarOrder> showview() 
+	{
+		List<CarOrder> productsList=new ArrayList<CarOrder>();
+		
+		String showQuery="select * from Car_orders";
+		Connection con;
+		try {
+			con = Connectionutil.getDBconnection();
+			Statement stmt=con.createStatement();
+			ResultSet rs=stmt.executeQuery(showQuery);
+			while(rs.next())
+			{
+				
+				CarOrder product=new CarOrder(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(6));
+				productsList.add(product);
+				
+			}
+			
+			
+		} catch (ClassNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		return productsList;
+	}
 }

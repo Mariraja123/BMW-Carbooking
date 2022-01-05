@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.Carbooking.model.*;
 import com.connection.*;
@@ -81,26 +84,35 @@ public class OrderDetailDaoImpl {
     	
     	
     }
-    public static ResultSet view (OrderDetail obj1)
-    {
-    	String delete="select * from Order_details where user_id=?";
-    	 Connection Con;
+    public   List<OrderDetail> view(OrderDetail obj) 
+	{
+		List<OrderDetail> productsList=new ArrayList<OrderDetail>();
+		
+		String showQuery="select * from Order_details where user_id=?";
+		Connection con;
 		try {
-			Con = Connectionutil.getDBconnection();
-			 PreparedStatement stmt=Con.prepareStatement(delete);
-	    	 stmt.setInt(1, obj1.getOrder_id());
-	    	 ResultSet rs=stmt.executeQuery();
-	    	return rs;
-		} catch (ClassNotFoundException e) {
+			con = Connectionutil.getDBconnection();
+			PreparedStatement stmt=con.prepareStatement(showQuery);
+			stmt.setInt(1, obj.getUserId());
+			ResultSet rs=stmt.executeQuery();
+			while(rs.next())
+			{
+				
+				OrderDetail product=new OrderDetail(rs.getInt(1),rs.getInt(2),rs.getString(3),rs.getInt(4));
+				productsList.add(product);
+				
+			}
+			
+			
+		} catch (ClassNotFoundException e1) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
+			e1.printStackTrace();
+		} catch (SQLException e1) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			e1.printStackTrace();
 		}
-		return null;
-    	
-    	
-    }
+		return productsList;
+	}
+	
     
 }

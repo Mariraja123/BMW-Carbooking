@@ -14,12 +14,7 @@ img{
 width: 350px;
 padding:130px;
 }
-span{
-position : relative;
-top:280px;
-left: -400px;
 
-}
 </style>
 </head>
 <body>
@@ -51,10 +46,10 @@ CarProduct carProduct = dao.selectproduct(car);
                                         <span>carmodel : <%=carProduct.getCarModel()%> </span><br>
                                         <span>cartype : Rs.<%=carProduct.getCarType() %> </span><br>
                                         <span>fueltype: <%=carProduct.getFuelType() %></span><br>
-                                          <span>Price:<%=carProduct.getPrice() %>"> </span>
+                                          <span>Price:<%=carProduct.getPrice() %>" </span>
                                        <%session.setAttribute("carname", carProduct.getCar_name()); %>
-                                        <a href="CustomerDetail.jsp">confirm booking </a>
-                                        <a href="ShowProducts.jsp">Cancel booking</a>
+                                      <button> <a href="CustomerDetail.jsp">confirm booking </a></button>
+                                       <button> <a href="ShowProducts.jsp">Cancel booking</a></button>
                                           
                                          </form></span>
                                         

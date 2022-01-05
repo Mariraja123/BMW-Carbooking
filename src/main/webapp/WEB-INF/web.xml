@@ -15,6 +15,18 @@
 		<description></description>
 		<servlet-class>com.Carbooking.controller.CustomerDetailServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>PriceDeleteServlet</servlet-name>
+		<display-name>PriceDeleteServlet</display-name>
+		<description></description>
+		<servlet-class>com.Carbooking.controller.PriceDeleteServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AddCartServlet</servlet-name>
+		<display-name>AddCartServlet</display-name>
+		<description></description>
+		<servlet-class>com.Carbooking.controller.AddCartServlet</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>ForgetServlet</servlet-name>
 		<url-pattern>/ForgetServlet</url-pattern>
@@ -22,6 +34,14 @@
 	<servlet-mapping>
 		<servlet-name>CustomerDetailServlet</servlet-name>
 		<url-pattern>/CustomerDetailServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PriceDeleteServlet</servlet-name>
+		<url-pattern>/PriceDeleteServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AddCartServlet</servlet-name>
+		<url-pattern>/AddCartServlet</url-pattern>
 	</servlet-mapping>
 	
 

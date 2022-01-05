@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@ page import="com.Carbooking.daoimpl.CarProductDaoImpl" %>
-    <%@ page import="java.util.List" %>
+    <%@ page import="com.Carbooking.daoimpl.CarorderDaoImpl" %>
+    <%@ page import="java.util.*" %>
     <%@ page import="com.Carbooking.model.CarOrder" %>
     
 <!DOCTYPE html>
@@ -11,14 +11,19 @@
 <title>Show products</title>
 </head>
 <body>
- <form>
-<% CarProductDaoImpl dao=new CarProductDaoImpl();
-List<CarProduct> listproduct=dao.showview();
 
 
+
+
+
+<% CarorderDaoImpl dao=new CarorderDaoImpl();
+List <CarOrder> allbook;
+allbook=dao.allbook();
 %>
 
-</form>
+
+
+
 
  <h2 class="CarProducts">Car Products</h2>
         
@@ -27,20 +32,22 @@ List<CarProduct> listproduct=dao.showview();
             <tbody>
                 <tr>
                 <%int count=0;
-                for(CarProduct carProduct: listproduct){
+                for(CarOrder carProduct1: allbook){
                 	%>
                     <td>
-                        <table id="pets">
+                        <table border=1>
                             <tbody>
                                 <tr>
-                                    <td><img src="/bmw/src/main/webapp/WEB-INF/images/X5Model.jpg" alt="maari"></td>    
-                                    <td class="petdetails">
-                                        <span>Type : <%=carProduct.getCar_id()%> </span><br>
-                                        <span>Name : <%=carProduct.getCar_name()%>  </span><br>
-                                        <span>Color : <%=carProduct.getCarModel()%> </span><br>
-                                        <span>price : Rs.<%=carProduct.getCarType() %> </span><br>
-                                        <span>Qty: <%=carProduct.getFuelType() %></span><br>
-                                        <%=carProduct.getPrice() %>"><button>view</button></a>
+                                    
+                                    <td class="order detail">
+                                        <span>order : <%=carProduct1.getOrder_id()%> </span><br>
+                                        <span>carid : <%=carProduct1.getCar_id()%>  </span><br>
+                                        <span>carname : <%=carProduct1.getCarname()%> </span><br>
+                                      
+                                        <span>date: <%=carProduct1.getStatus() %></span><br>
+                                       
+                                       <span>status <%=carProduct1.getAddress() %></span>
+                                       
                                     </td>
                                 </tr>
                             </tbody>
@@ -48,7 +55,7 @@ List<CarProduct> listproduct=dao.showview();
                             
                     </td>
                        <% count ++;
-                       if(count==3){ %> 
+                       if(count==5){ %> 
                     	   </tr>
                     	   <tr>              
                      <%count=0; }}%>  

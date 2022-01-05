@@ -9,21 +9,14 @@ public class CarProduct {
 	private String fuelType;
 	private String CarModel;
 	private String CarType;
-	private long price;
+	private int price;
 	private String images;
-	private String viewlink;
 	
-	public String getViewlink() {
-		return viewlink;
-	}
+	
+	
 
 
-	public void setViewlink(String viewlink) {
-		this.viewlink = viewlink;
-	}
-
-
-	public CarProduct(String carid, String fuelType, String carModel, String carType, long price,String images) {
+	public CarProduct(String carid, String fuelType, String carModel, String carType, int price,String images) {
 		super();
 		this.Carid = carid;
 		this.fuelType = fuelType;
@@ -38,19 +31,8 @@ public class CarProduct {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public CarProduct(String car_id, String car_name, String fuelType, String carModel, String carType, long price,String images,String viewlink) {
-		super();
-		this.Carid = car_id;
-		this.Car_name = car_name;
-		this.fuelType = fuelType;
-		this.CarModel = carModel;
-		this.CarType = carType;
-		this.price = price;
-		this.images=images;
-		this.viewlink = viewlink;
-	}
 	
-	public CarProduct(String car_id, String car_name, String fuelType, String carModel, String carType, long price,String images) {
+	public CarProduct(String car_id, String car_name, String fuelType, String carModel, String carType, int price) {
 		super();
 		this.Carid = car_id;
 		this.Car_name = car_name;
@@ -58,7 +40,7 @@ public class CarProduct {
 		this.CarModel = carModel;
 		this.CarType = carType;
 		this.price = price;
-		this.images=images;
+	
 	
 	}
 	
@@ -110,7 +92,7 @@ public class CarProduct {
 		Car_name = car_name;
 	}
 	
-	public CarProduct(String car_id, long price) {
+	public CarProduct(String car_id, int price) {
 		super();
 		this.Carid = car_id;
 		this.price = price;
@@ -120,6 +102,32 @@ public class CarProduct {
 		super();
 		this.Carid = car_id;
 	}
+	
+
+
+	public CarProduct(String carid, String fuelType, String carModel, String carType, int price) {
+		super();
+		this.Carid = carid;
+		this.fuelType = fuelType;
+		this.CarModel = carModel;
+		this.CarType = carType;
+		this.price = price;
+	}
+
+
+	public CarProduct(String carid, String car_name, String fuelType, String carModel, String carType, int price,
+			String images) {
+		super();
+		this.Carid = carid;
+		this.Car_name = car_name;
+		this.fuelType = fuelType;
+		this.CarModel = carModel;
+		this.CarType = carType;
+		this.price = price;
+		this.images = images;
+	}
+
+
 	public String getCar_id() {
 		return Carid;
 	}
@@ -160,7 +168,7 @@ public class CarProduct {
 	public long getPrice() {
 		return price;
 	}
-	public void setPrice(long price) {
+	public void setPrice(int price) {
 		this.price = price;
 	}
 }

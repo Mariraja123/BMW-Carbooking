@@ -7,19 +7,20 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h1>Customer Details:</h1>
 <form action="custdetail" method="post">
 <label>Enter your name:</label>
-<input type="text" name="custname">
+<input type="text" name="custname"><br><br>
 <label>Enter your address:</label>
-<input type="text" name="address">
+<input type="text" name="address"><br><br>
 <label>Enter your city</label>
-<input type="text" name="city">
+<input type="text" name="city"><br><br>
 <label>Enter your pincode:</label>
-<input type="number" name="code">
+<input type="number" name="code"><br><br>
 <label>Enter your noOfDates:</label>
-<input type="number" name="Expected">
+<input type="number" name="Expected"><br><br>
 <h1>advance pay amount:</h1>
-<input type="number" name="advance">
+<input type="number" name="advance"><br><br>
 <button type="submit">submit</button>
 </form>
 </body>

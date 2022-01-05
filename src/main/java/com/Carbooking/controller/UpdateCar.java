@@ -25,11 +25,11 @@ public class UpdateCar extends HttpServlet {
 		String fueltype=request.getParameter("fueltype");
 		String cartype=request.getParameter("cartype");
 		String carmodel=request.getParameter("carmodel");
-		Long price=Long.parseLong(request.getParameter("price"));
+		int price=Integer.parseInt(request.getParameter("price"));
 		CarProduct update=new CarProduct(carid,fueltype,cartype,carmodel,price);
 		CarProductDaoImpl adddao=new CarProductDaoImpl();
 		adddao.update(update);
-		response.sendRedirect("Main.jsp");
+		response.sendRedirect("Admin.jsp");
 	}
 
 }

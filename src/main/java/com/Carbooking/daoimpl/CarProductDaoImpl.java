@@ -14,7 +14,7 @@ import com.connection.Connectionutil;
 
 public class CarProductDaoImpl {
 
-	public static  List<CarProduct> showview() 
+	public  static List<CarProduct> showview() 
 	{
 		List<CarProduct> productsList=new ArrayList<CarProduct>();
 		
@@ -27,7 +27,7 @@ public class CarProductDaoImpl {
 			while(rs.next())
 			{
 				
-				CarProduct product=new CarProduct(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),Long.parseLong(rs.getString(6)),rs.getString(7),rs.getString(8));
+				CarProduct product=new CarProduct(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),Integer.parseInt(rs.getString(6)));
 				productsList.add(product);
 				
 			}
@@ -64,7 +64,7 @@ public class CarProductDaoImpl {
 //		
 //	}
 //	
-     public static void update(CarProduct obj1) 
+     public  void update(CarProduct obj1) 
      {
    	  String update="update car_details set fueltype=?,cartype=?,car_model=?,price=? where Car_id=? ";
    	  Connection Con;
@@ -87,9 +87,9 @@ public class CarProductDaoImpl {
 	}
    	  
      }
-     public static void insert(CarProduct obj1) 
+     public  void insert(CarProduct obj1) 
      {
-    	 String insert="insert into car_details values(?,?,?,?,?,?)";
+    	 String insert="insert into car_details (car_id,car_name,fueltype,cartype,car_model,price)values(?,?,?,?,?,?)";
     	 Connection Con;
 		try {
 			Con = Connectionutil.getDBconnection();
@@ -111,7 +111,7 @@ public class CarProductDaoImpl {
 		}
     	 
      }
-     public static void delete(CarProduct obj1) 
+     public  void delete(CarProduct obj1) 
      {
     	 String delete="delete from car_details where car_id=?";
     	 Connection Con;
@@ -130,7 +130,7 @@ public class CarProductDaoImpl {
 		}
     	
      }
-     public static String Searchproduct(CarProduct obj3) 
+     public  String Searchproduct(CarProduct obj3) 
      {
     	 String search="Select car_id from car_details where car_name=? and fueltype=?";
     	 Connection Con;
@@ -158,7 +158,7 @@ public class CarProductDaoImpl {
 		return proId;
     	
      }
-    	 public static CarProduct selectproduct(CarProduct obj) throws ClassNotFoundException, SQLException
+    	 public  static CarProduct selectproduct(CarProduct obj) throws ClassNotFoundException, SQLException
     	 {
     		 System.out.println("hai0");
     		 CarProduct cars=null;
@@ -173,7 +173,7 @@ public class CarProductDaoImpl {
         	 while(rs.next())
         	 {
 //        		 System.out.println(rs.getString(1)+" "+rs.getString(2)+" "+rs.getString(3)+" "+rs.getString(4)+" "+rs.getString(5)+" "+rs.getString(6));
-        		 cars =new CarProduct(rs.getString(1),rs.getString(2),rs.getString(3) ,rs.getString(4), rs.getString(5),rs.getLong(6),rs.getString(7));
+        		 cars =new CarProduct(rs.getString(1),rs.getString(2),rs.getString(3) ,rs.getString(4), rs.getString(5),rs.getInt(6),rs.getString(7));
         		 return cars;
         	 }
    return cars;
@@ -209,33 +209,6 @@ public class CarProductDaoImpl {
     			return carname;
     	    	
     	     }
-    	   public  String wlink(CarProduct obj3) 
-  	     {
-  	    	 String search="Select viewlink from CarProduct where car_id=?";
-  	    	 Connection Con;
-  	    	
-  	    	 String wlink =null;
-  			try {
-  				 Con = Connectionutil.getDBconnection();
-  				 PreparedStatement stmt=Con.prepareStatement(search);
-  			    	stmt.setString(1, obj3.getViewlink());
-  			    
-  			    	 ResultSet rs=stmt.executeQuery();
-  			    	
-  			    	 if(rs.next())
-  			    	 {
-  			             wlink=rs.getString(1);
-  			    	 }
-  			    	 
-  			} catch (ClassNotFoundException e) {
-  				// TODO Auto-generated catch block
-  				e.printStackTrace();
-  			} catch (SQLException e) {
-  				// TODO Auto-generated catch block
-  				e.printStackTrace();
-  			}
-  			return wlink;
-  	    	
-  	     }
+    	   
 
 }

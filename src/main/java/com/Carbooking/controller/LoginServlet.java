@@ -42,7 +42,7 @@ public class LoginServlet extends HttpServlet {
 					UserDetaildaoImpl userDetaildaoImpl2 = new UserDetaildaoImpl();
 					int userid2 = userDetaildaoImpl.username(ud1);
 					session.setAttribute("adminid",userid);
-					resp.sendRedirect("Addcar.jsp");
+					resp.sendRedirect("Admin.jsp");
 				}
 			}
 		} catch (ClassNotFoundException | SQLException e) {

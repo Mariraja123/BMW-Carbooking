@@ -1,6 +1,7 @@
 package com.Carbooking.daoimpl;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,24 +12,33 @@ import com.connection.*;
 
 
 public class PriceDetailDaoImpl {
-	public static void insert(Pricedetail obj) throws ClassNotFoundException, SQLException
+	public static void insert(Pricedetail obj)
     {
 		
-	String insert="insert into price_detail (car_id,car_name,Exshowroom_price,road_tax,insurance,onroad_price)values(?,?,?,?,?,"+obj.getExshowroomprice()+obj.getRoadtax()+obj.getInsurance()+"=?)";
-//	String query="update price_detail set onroad_price=sum(exshowroom_price,road_tax) where car_id in ? and car_name=?";
-	Connection Con=Connectionutil.getDBconnection();
-	PreparedStatement stmt=Con.prepareStatement(insert);
-	stmt.setString(1, obj.getCar_id());
-	stmt.setString(2, obj.getCar_name());
-	stmt.setInt(3, obj.getExshowroomprice());
-	stmt.setInt(4, obj.getRoadtax());
-	stmt.setInt(5, obj.getInsurance());
-	stmt.setInt(6, obj.getOnroadprice());
-	int i=stmt.executeUpdate();
-//	stmt=Con.prepareStatement(query);
-//	stmt.setString(1,obj.getCar_id());
-//	stmt.executeUpdate();
-	System.out.println(i);
+	String insert="insert into price_detail (car_id,car_name,Exshowroom_price,road_tax,insurance,onroad_price) values(?,?,?,?,?,?)";
+
+	Connection Con;
+	try {
+		Con = Connectionutil.getDBconnection();
+		PreparedStatement stmt=Con.prepareStatement(insert);
+		stmt.setString(1, obj.getCar_id());
+		stmt.setString(2, obj.getCar_name());
+		stmt.setInt(3, obj.getExshowroomprice());
+		stmt.setInt(4, obj.getRoadtax());
+		stmt.setInt(5, obj.getInsurance());
+		stmt.setInt(6, obj.getOnroadprice());
+		int i=stmt.executeUpdate();
+		System.out.println(i);
+	} catch (ClassNotFoundException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	
+
+	
     }
     public static void update(Pricedetail obj1)
     {
@@ -40,7 +50,7 @@ public class PriceDetailDaoImpl {
 	     stmt.setInt(1, obj1.getExshowroomprice());
 	     stmt.setInt(2, obj1.getRoadtax());
 	     stmt.setInt(3, obj1.getInsurance());
-	        stmt.setString(4, obj1.getCar_id());
+	      stmt.setString(4, obj1.getCar_id());
 	  	  int i=stmt.executeUpdate();
 	  	  System.out.println(i);
 	} catch (ClassNotFoundException e) {
@@ -61,13 +71,13 @@ public class PriceDetailDaoImpl {
     	int i=stmt.executeUpdate();
     	System.out.println(i);
     }
+    
     public static int Findproduct(String obj) 
     {
    	 String search="Select onroad_price from price_detail where car_id=?";
    	 Connection Con;
    	System.out.println(obj);
    	 int onprice=0;
-
 		try {
 			
 			 Con = Connectionutil.getDBconnection();

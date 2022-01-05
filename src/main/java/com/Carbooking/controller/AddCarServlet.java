@@ -23,7 +23,7 @@ public class AddCarServlet extends HttpServlet {
 		String fueltype=request.getParameter("fueltype");
 		String cartype=request.getParameter("cartype");
 		String carmodel=request.getParameter("carmodel");
-		Long price=Long.parseLong(request.getParameter("price"));
+		int price=Integer.parseInt(request.getParameter("price"));
 		CarProduct add=new CarProduct(carid,carname,fueltype,cartype,carmodel,price);
 		CarProductDaoImpl adddao=new CarProductDaoImpl();
 		adddao.insert(add);

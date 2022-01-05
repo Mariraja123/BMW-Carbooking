@@ -21,13 +21,13 @@ public class CarOrder {
 		
 		this.Expecteddate = expecteddate;
 	}
-	public CarOrder(int order_id, String car_id, String carname,String status,int expecteddate,String address) {
+	public CarOrder(int order_id, String car_id, String carname,String status,String address) {
 		super();
 		this.order_id = order_id;
 		this.car_id = car_id;
-		Carname = carname;
+		this.Carname = carname;
 		this.status = status;
-		this.Expecteddate = expecteddate;
+		
 		this.address=address;
 	}
 	public String getAddress() {
@@ -82,11 +82,12 @@ public class CarOrder {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public CarOrder(int orderid, String carid, String carname2, int dates, String address2) {
+	
+	public CarOrder(int orderid, String carid, String carnames, int dates, String address2) {
 		// TODO Auto-generated constructor stub
 		this.order_id=orderid;
 		this.car_id=carid;
-		this.Carname=carname2;
+		this.Carname=carnames;
 		this.Expecteddate=dates;
 		this.address=address2;
 	}

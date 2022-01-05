@@ -103,48 +103,52 @@ public class UserDetaildaoImpl {
 		}
 		return veiwall;
 	}
-	public static Long wallte(UserDetail obj)
-	{
-		String query="select userwallet from user_details where user_id in ?";
-		long wallet=0;
-		try {
-			Connection Con = Connectionutil.getDBconnection();
-			PreparedStatement stmt=Con.prepareStatement(query);
-			stmt.setInt(1, obj.getUserId());
-			ResultSet rs=stmt.executeQuery();
-			System.out.println(obj.getUserId());
-			while(rs.next())
-			{
-				 wallet=rs.getLong(1);
-				 System.out.println(wallet);
-			}
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return wallet;
-		
-	}
+//	public  int wallte(UserDetail obj)
+//	{
+//		String query="select userwallet from user_details where user_id in ?";
+//		int wallet=0;
+//		try {
+//			Connection Con = Connectionutil.getDBconnection();
+//			PreparedStatement stmt=Con.prepareStatement(query);
+//			stmt.setInt(1, obj.getUserId());
+//			ResultSet rs=stmt.executeQuery();
+//			System.out.println(obj.getUserId());
+//			while(rs.next())
+//			{
+//				 wallet=rs.getInt(1);
+//				 System.out.println(wallet);
+//			}
+//		} catch (ClassNotFoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		return wallet;
+//		
+//	} 
 
-	public int updateWallet(UserDetail obj) {
+	public void updateWallet(int wallet,int userid) {
 		// TODO Auto-generated method stub
-		String query="update user_details set userwallet=? where user_id in ?";
+		String query="update user_details set userwallet =userwallet - ? where user_id = ?";
 		
 		try {
 			Connection con=Connectionutil.getDBconnection();
+			int i=0;
+			System.out.println("hi here");
 			PreparedStatement pstmt=con.prepareStatement(query);
-			pstmt.setLong(1, obj.getWallet());
-			pstmt.setInt(2, obj.getUserId());
-			pstmt.executeUpdate();
+			pstmt.setLong(1,wallet);
+			pstmt.setInt(2, userid);
+			i=pstmt.executeUpdate();
+			System.out.println(i);
+			System.out.println(i+" row updated");
 			
 		}catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return 0;
+		
 		
 	}
 	

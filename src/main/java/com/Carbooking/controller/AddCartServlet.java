@@ -6,26 +6,27 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import com.Carbooking.daoimpl.CarProductDaoImpl;
-import com.Carbooking.model.CarProduct;
+import com.Carbooking.daoimpl.OrderDetailDaoImpl;
+import com.Carbooking.model.OrderDetail;
 
 /**
- * Servlet implementation class DeleteServlet
+ * Servlet implementation class AddCartServlet
  */
-@WebServlet("/deletecar")
-public class DeleteServlet extends HttpServlet {
+@WebServlet("/call")
+public class AddCartServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-  
+   
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 //		doGet(request, response);
-		String carid=request.getParameter("carid");
-		CarProduct delete=new CarProduct(carid);
-		CarProductDaoImpl adddao=new CarProductDaoImpl();
-		adddao.delete(delete);
-		response.sendRedirect("Admin.jsp");
+		HttpSession session=request.getSession();
+		int userid=(int)session.getAttribute("userid");
+		OrderDetail dao=new OrderDetail(userid);
+		OrderDetailDaoImpl dan=new OrderDetailDaoImpl();
+		dan.view();
 	}
 
 }

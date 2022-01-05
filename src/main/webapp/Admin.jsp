@@ -90,17 +90,17 @@
       float: right;
       display: block;
     }
-</style>
-</head>
-<body>
-<div class="topnav" id="myTopnav">
-    <a href="#home" >Home</a>
+    </style>
+    </head>
+    <body>
+    <div class="topnav" id="myTopnav">
+    <a href="#home" class="active">Home</a>
     <a href="#news">News</a>
-     <a href="Login.jsp" style=float:right>Logout</a>
+    <a href="Login.jsp" style=float:right>Logout</a>
     <a href="ViewUser.jsp">UserHistory</a>
     <a href="BookingDetail.jsp">Booking history</a>
     <div class="dropdown">
-      <button class="dropbtn" >Dropdown
+      <button class="dropbtn">Dropdown
         <i class="fa fa-caret-down"></i>
       </button>
       <div class="dropdown-content">
@@ -112,43 +112,6 @@
     <a href="#about">About</a>
    
   </div>
-  <br>
-  
-    <form action="addcar" method="post">
-      <label>Enter your carid:</label>
-      <input type="text" name="carid"><br><br>
-      <label>Enter your Carname</label>
-      <input type="text" name="carname"><br><br>
-      <label>Enter your fueltype</label>
-      <input type="text" name="fueltype"><br><br>
-      <label>Enter your cartype</label>
-      <input type="text" name="cartype"><br><br>
-      <label>Enter your carmodel</label>
-      <input type="text" name="carmodel"><br><br>
-      <label>Enter your price</label>
-      <input type="number" name="price"><br><br>
-      <button type="submit">Add car</button>
-    </form>
-    <hr>
-    <form action="updatecar" method="Post">
-    
-     <label>Enter your carid:</label>
-      <input type="text" name="carid"><br><br>
-      <label>Enter your fueltype</label>
-      <input type="text" name="fueltype"><br><br>
-      <label>Enter your cartype</label>
-      <input type="text" name="cartype"><br><br>
-      <label>Enter your carmodel</label>
-      <input type="text" name="carmodel"><br><br>
-      <label>Enter your price</label>
-      <input type="number" name="price">
-      <button type="submit">update car</button>
-    </form>
- <hr>
- <form action="deletecar" method="post">
- <label>Enter your carid:</label>
- <input type="text" name="carid"><br><br>
- <button type="submit">Delete car</button>
- </form>
+  <img src="https://cdn.jdpower.com/Models/640x480/2022-BMW-3Series-330e.jpg" style=width:100% height:70%>
 </body>
 </html>

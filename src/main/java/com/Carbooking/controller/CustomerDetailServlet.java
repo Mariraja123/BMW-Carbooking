@@ -30,17 +30,17 @@ public class CustomerDetailServlet extends HttpServlet {
 		HttpSession session=request.getSession();
 
 		int userid=(int)session.getAttribute("userid");
-		session.getAttribute("userid");
-		UserDetail san=new UserDetail();
-		UserDetaildaoImpl dan=new UserDetaildaoImpl();
-		int wallet=dan.updateWallet(san);
-		System.out.println(wallet);
+//		session.getAttribute("userid");
+//		UserDetail san=new UserDetail();
+//		UserDetaildaoImpl dan=new UserDetaildaoImpl();
+//		int wallet=dan.updateWallet(san);
+//		System.out.println(wallet);
 		int price=Integer.parseInt(request.getParameter("advance"));
-		wallet-=price;
-		UserDetail abc=new UserDetail();
-		abc.setWallet(wallet);
-		abc.setUserId(userid);
-		dan.updateWallet(abc);
+//		wallet=wallet-price;
+//		UserDetail abc=new UserDetail();
+//		abc.setWallet(wallet);
+//		abc.setUserId(userid);
+//		dan.updateWallet(abc);
 		String custname=request.getParameter("custname");
 		String addres=request.getParameter("address");
 		String  city=request.getParameter("city");
@@ -49,18 +49,23 @@ public class CustomerDetailServlet extends HttpServlet {
 		String address=custname+","+addres+","+city+","+pincode;
 		
 		int dates=Integer.parseInt(request.getParameter("Expected"));
-		int amount=Integer.parseInt(request.getParameter("advance"));
-		System.out.println("amout"+amount);
+		
 		
 		String Carid=(String)session.getAttribute("car_id");
 		String carnames=(String)session.getAttribute("carname");
-		session.setAttribute("amount", amount);
+//		session.setAttribute("amount", amount);
 		OrderDetailDaoImpl order=new OrderDetailDaoImpl();
 		int orderid=order.Findorder();
 		CarOrder conf=new CarOrder(orderid,Carid,carnames,dates,address);
 		CarorderDaoImpl daon=new CarorderDaoImpl();
 		
 		daon.insert(conf);
+		UserDetail use=new UserDetail(price,userid);
+		System.out.println("hi maari");
+		UserDetaildaoImpl san=new UserDetaildaoImpl();
+//		int wallet=san.wallte(use);
+//		price=wallet-price;
+	      san.updateWallet(price, userid);
 		
 	
 		response.sendRedirect("ShowProducts.jsp");
