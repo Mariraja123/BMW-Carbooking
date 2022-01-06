@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
 import com.Carbooking.model.*;
 
 import com.connection.*;
@@ -26,45 +28,45 @@ public class UserDetaildaoImpl {
 		System.out.println(i);
 	}
 
-	public  String validate(String email,String password)  {
-		
-       ResultSet rs=null;
-		
-			System.out.println("hello");
-		Connection Con;
-		try {
-			Con = Connectionutil.getDBconnection();
-			
-			String query="select usertype from User_details where email=? and cpassword=?";
-			PreparedStatement pstmt=Con.prepareStatement(query);
-			pstmt.setString(1, email);
-			pstmt.setString(2, password);
-			
-			rs=pstmt.executeQuery(query);
-			rs.next();
-			return rs.getString(1);
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return null;
-				
-	}
+//	public  String validate(String email,String password)  {
+//		
+//       ResultSet rs=null;
+//		
+//			System.out.println("hello");
+//		Connection Con;
+//		try {
+//			Con = Connectionutil.getDBconnection();
+//			
+//			String query="select usertype from User_details where email=? and cpassword=?";
+//			PreparedStatement pstmt=Con.prepareStatement(query);
+//			pstmt.setString(1, email);
+//			pstmt.setString(2, password);
+//			
+//			rs=pstmt.executeQuery(query);
+//			rs.next();
+//			return rs.getString(1);
+//		} catch (ClassNotFoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		return null;
+//				
+//	}
 	
-	public String loginval(String email,String password) throws ClassNotFoundException, SQLException {
+	public UserDetail loginval(String email,String password) throws ClassNotFoundException, SQLException {
 		Connection con = Connectionutil.getDBconnection();
 		System.out.println(email+password);
-		String query="select usertype from user_details where email = ? and cpassword = ?";
+		String query="select * from user_details where email = ? and cpassword = ?";
 		PreparedStatement pstmt=con.prepareStatement(query);
 		pstmt.setString(1, email);
 		pstmt.setString(2, password);
 		
 		ResultSet rs = pstmt.executeQuery();
-		while(rs.next()) {
-			return rs.getString(1);
+		if(rs.next()) {
+			return new UserDetail(rs.getInt(5),rs.getString(1),rs.getString(2),rs.getString(3),rs.getLong(4),rs.getString(6),rs.getInt(7));
 		}
 		return null;
 	}

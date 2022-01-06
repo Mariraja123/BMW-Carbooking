@@ -7,8 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 <h1>Customer Details:</h1>
-<form action="custdetail" method="post">
+<form action="custdetails" method="post">
 <label>Enter your name:</label>
 <input type="text" name="custname"><br><br>
 <label>Enter your address:</label>

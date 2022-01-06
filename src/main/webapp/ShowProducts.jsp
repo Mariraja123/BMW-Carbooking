@@ -1,3 +1,4 @@
+<%@page import="com.Carbooking.model.UserDetail"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@ page import="com.Carbooking.daoimpl.CarProductDaoImpl" %>
@@ -108,6 +109,7 @@ padding:70px;
 </head>
 
 <body>
+<% UserDetail user=(UserDetail)session.getAttribute("currentUser"); %>
 <div class="topnav" id="myTopnav">
     <a href="#home" class="active">ShowProduct</a>
    <a href="AddCart.jsp">Cart</a>
@@ -115,6 +117,7 @@ padding:70px;
    
     <a href="#about">About</a>
     <a href="#about">contact</a>
+    <button><%= user.getWallet() %>></button>
        
       </div>
     </div>

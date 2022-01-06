@@ -1,29 +1,19 @@
-<%@page import="org.apache.catalina.connector.Request"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%-- <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@ page import="com.Carbooking.daoimpl.OrderDetailDaoImpl" %>
+     <%@ page import="com.Carbooking.daoimpl.InvoiceDaoImpl" %>
     <%@ page import="java.util.List" %>
-    <%@ page import="com.Carbooking.model.OrderDetail" %>
-    
+    <%@ page import="com.Carbooking.model.Invoice" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Show products</title>
+<title>Insert title here</title>
 
- <form >
-<% OrderDetailDaoImpl dao=new OrderDetailDaoImpl();
-int user =Integer.parseInt(session.getAttribute("userid").toString());
-System.out.println(user);
-OrderDetail ord=new OrderDetail();
-ord.setUserId(user);
-List<OrderDetail> listproduct=dao.view(ord);
+</head>
 
 
-%>
-
-</form>
-<h1>Cart details</h1>
+<body>
+ 
 
         
         <div class="recently added list">
@@ -31,7 +21,7 @@ List<OrderDetail> listproduct=dao.view(ord);
             <tbody>
                 <tr>
                 <%int count=0;
-                for(OrderDetail order: listproduct){
+               for(Invoice order:listproduct){
                 	%>
                     <td>
                         <table id="carproduct" border=1 >
@@ -39,13 +29,12 @@ List<OrderDetail> listproduct=dao.view(ord);
                                 <tr>
                                    
                                     <td class="car">
+                                         <span>invoiceid: <%= order.getInvoice_id() %></span>
                                         <span> orderid : <%= order.getOrder_id() %> </span><br>
                                         
-                                        <span>userid : <%=order.getUserId()%>  </span><br>
-                                        <span>carmodel : <%=order.getCarid()%> </span><br>
-                                        <span>price : <%=order.getPrice() %> </span><br>
-                                        <% session.setAttribute("orderid", order.getOrder_id()); %>
-                                        <button type="submit">Delete</button>
+                                        <span>userid : <%=order.getUser_id()%>  </span><br>
+                                        <span>carmodel : <%=order.getPrice()%> </span><br>
+                                        <span>price : <%=order.getCar_name() %> </span><br>
                                       
                                       
                                       
@@ -74,3 +63,7 @@ List<OrderDetail> listproduct=dao.view(ord);
 
 </body>
 </html>
+
+   
+</body>
+</html> --%>

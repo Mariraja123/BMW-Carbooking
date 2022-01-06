@@ -243,21 +243,14 @@ form .create-account:hover {
 </head>
 
 <body>
-<!--<form action="loginval1" method="post" >
-	<label>username:</label>
-	<input type="text" name="inpem"><br>
-	<label>password</label>
-	<input type="password" name="inppass">
-	<button type="submit">submit</button><br><br>
-	<button><a href="Index.jsp"> Create account</a></button>
-</form>--->
+
    <div class="content">
       <div class="flex-div">
         <div class="name-content">
           <h1 class="logo">BMW SHOWROOM</h1>
           <p>Connect with friends and the world</p>
         </div>
-          <form action="loginval" >
+          <form action="loginval" method="post">
             <input type="text" placeholder="Email"  name="uname" required />
             <input type="password" placeholder="Password" name="upass" required>
             <button class="login" type="submit">Log In</button>

@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+
 import com.Carbooking.dao.UserDetailDao;
 import com.Carbooking.daoimpl.UserDetaildaoImpl;
 import com.Carbooking.model.UserDetail;
@@ -23,29 +24,40 @@ public class LoginServlet extends HttpServlet {
 		String username=req.getParameter("uname");
 		String password=req.getParameter("upass");
 		System.out.println(username+password);
-		UserDetail ud=new UserDetail(username, password);
-		UserDetaildaoImpl uddi=new UserDetaildaoImpl();
+		//UserDetail user=new UserDetail(username, password);
+		UserDetaildaoImpl userDao=new UserDetaildaoImpl();
 		String rs;
 		try {
-			rs = uddi.loginval(username, password);
-			System.out.println(rs);
-			if(rs != null) {
-				UserDetail ud1 = new UserDetail(username);
-				UserDetaildaoImpl userDetaildaoImpl = new UserDetaildaoImpl();
-				int userid = userDetaildaoImpl.username(ud1);
-				session.setAttribute("userid",userid );
-				if(rs.equals("user")) {
-				
+//			rs = uddi.loginval(username, password);
+//			System.out.println(rs);
+//			if(rs != null) {
+//				UserDetail ud1 = new UserDetail(username);
+//				UserDetaildaoImpl userDetaildaoImpl = new UserDetaildaoImpl();
+//				int userid = userDetaildaoImpl.username(ud1);
+//				session.setAttribute("userid",userid );
+//				System.out.println("use");
+			UserDetail currentUser=userDao.loginval(username, password);
+			System.out.println(currentUser);
+				if(currentUser!=null) {
+					if(currentUser.getUsertype().equals("user"))
+					{
+						session.setAttribute("currentUser", currentUser);
+						
 					resp.sendRedirect("ShowProducts.jsp");
-				}else if(rs.equals("admin")) {
-					UserDetail ud2 = new UserDetail(username);
-					UserDetaildaoImpl userDetaildaoImpl2 = new UserDetaildaoImpl();
-					int userid2 = userDetaildaoImpl.username(ud1);
-					session.setAttribute("adminid",userid);
+				}else if(currentUser.getUsertype().equals("admin")) {
+//					UserDetail ud2 = new UserDetail(username);
+//					UserDetaildaoImpl userDetaildaoImpl2 = new UserDetaildaoImpl();
+//					int userid2 = userDetaildaoImpl.username(ud1);
+					session.setAttribute("admin",currentUser);
 					resp.sendRedirect("Admin.jsp");
 				}
+				else
+				{
+					System.out.println("Invalid User Name password");
+				}
+		}
 			}
-		} catch (ClassNotFoundException | SQLException e) {
+		 catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

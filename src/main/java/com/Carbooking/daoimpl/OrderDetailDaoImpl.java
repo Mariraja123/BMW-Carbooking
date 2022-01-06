@@ -64,9 +64,9 @@ public class OrderDetailDaoImpl {
 			 
     }
 
-    public static void delete(OrderDetail obj1)
+    public  void delete(OrderDetail obj1)
     {
-    	String delete="delete from order_details where order_id=?";
+    	String delete="delete from order_details where user_id=?";
     	 Connection Con;
 		try {
 			Con = Connectionutil.getDBconnection();

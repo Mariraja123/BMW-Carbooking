@@ -1,51 +1,18 @@
 <!DOCTYPE web-app PUBLIC
  "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
+ "http://xmlns.jcp.org/xml/ns/javaee" >
 
 <web-app>
 	<servlet>
-		<servlet-name>ForgetServlet</servlet-name>
-		<display-name>ForgetServlet</display-name>
+		<servlet-name>BookingDetailServlet</servlet-name>
+		<display-name>BookingDetailServlet</display-name>
 		<description></description>
-		<servlet-class>com.Carbooking.controller.ForgetServlet</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>CustomerDetailServlet</servlet-name>
-		<display-name>CustomerDetailServlet</display-name>
-		<description></description>
-		<servlet-class>com.Carbooking.controller.CustomerDetailServlet</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>PriceDeleteServlet</servlet-name>
-		<display-name>PriceDeleteServlet</display-name>
-		<description></description>
-		<servlet-class>com.Carbooking.controller.PriceDeleteServlet</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>AddCartServlet</servlet-name>
-		<display-name>AddCartServlet</display-name>
-		<description></description>
-		<servlet-class>com.Carbooking.controller.AddCartServlet</servlet-class>
+		<servlet-class>com.Carbooking.controller.BookingDetailServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>ForgetServlet</servlet-name>
-		<url-pattern>/ForgetServlet</url-pattern>
+		<servlet-name>BookingDetailServlet</servlet-name>
+		<url-pattern>/BookingDetailServlet</url-pattern>
 	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>CustomerDetailServlet</servlet-name>
-		<url-pattern>/CustomerDetailServlet</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>PriceDeleteServlet</servlet-name>
-		<url-pattern>/PriceDeleteServlet</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>AddCartServlet</servlet-name>
-		<url-pattern>/AddCartServlet</url-pattern>
-	</servlet-mapping>
-	
-
-	
 	
 	
  

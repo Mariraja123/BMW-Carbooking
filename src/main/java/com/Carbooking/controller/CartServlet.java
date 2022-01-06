@@ -12,20 +12,22 @@ import javax.servlet.http.HttpSession;
 
 import com.Carbooking.daoimpl.OrderDetailDaoImpl;
 import com.Carbooking.model.OrderDetail;
+import com.Carbooking.model.UserDetail;
 @WebServlet("/cart")
 public class CartServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession session=req.getSession();
-	
-		int userid=Integer.parseInt(session.getAttribute("userid").toString());
-		System.out.println(userid);
+
+//		int userid=Integer.parseInt(session.getAttribute("currentUser").toString());
+		 UserDetail user=(UserDetail)session.getAttribute("currentUser"); 
+		System.out.println(user);
 		String carid=session.getAttribute("car_id").toString();
 		
 		int price=Integer.parseInt(session.getAttribute("price").toString());
 		
-		OrderDetail obj=new OrderDetail(userid,carid,price);
+		OrderDetail obj=new OrderDetail(user.getUserId(),carid,price);
 		OrderDetailDaoImpl orderdao=new OrderDetailDaoImpl();
 	
 		try {

@@ -11,6 +11,18 @@ public class UserDetail {
     private String usertype;
     private long wallet;
 
+	public UserDetail(int userId, String first_name, String cpassword, String email, Long phoneno, String usertype,
+			long wallet) {
+		super();
+		this.userId = userId;
+		this.first_name = first_name;
+		this.cpassword = cpassword;
+		Email = email;
+		this.phoneno = phoneno;
+		this.usertype = usertype;
+		this.wallet = wallet;
+	}
+
 	public long getWallet() {
 		return wallet;
 	}

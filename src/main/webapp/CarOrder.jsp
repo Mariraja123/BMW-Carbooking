@@ -1,9 +1,9 @@
-<%@page import="org.apache.catalina.connector.Request"%>
+<%-- <%@page import="org.apache.catalina.connector.Request"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@ page import="com.Carbooking.daoimpl.OrderDetailDaoImpl" %>
+    <%@ page import="com.Carbooking.daoimpl.CarorderDaoImpl" %>
     <%@ page import="java.util.List" %>
-    <%@ page import="com.Carbooking.model.OrderDetail" %>
+    <%@ page import="com.Carbooking.model.CarOrder" %>
     
 <!DOCTYPE html>
 <html>
@@ -12,12 +12,12 @@
 <title>Show products</title>
 
  <form >
-<% OrderDetailDaoImpl dao=new OrderDetailDaoImpl();
+<% CarorderDaoImpl dao=new CarorderDaoImpl();
 int user =Integer.parseInt(session.getAttribute("userid").toString());
 System.out.println(user);
-OrderDetail ord=new OrderDetail();
-ord.setUserId(user);
-List<OrderDetail> listproduct=dao.view(ord);
+CarOrder ord=new CarOrder();
+
+List<CarOrder> listproduct=dao.view(ord);
 
 
 %>
@@ -73,4 +73,4 @@ List<OrderDetail> listproduct=dao.view(ord);
    </div>
 
 </body>
-</html>
+</html> --%>

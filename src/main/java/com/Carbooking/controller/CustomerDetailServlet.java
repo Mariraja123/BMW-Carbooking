@@ -1,6 +1,8 @@
 package com.Carbooking.controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,13 +14,14 @@ import com.Carbooking.daoimpl.CarorderDaoImpl;
 import com.Carbooking.daoimpl.OrderDetailDaoImpl;
 import com.Carbooking.daoimpl.UserDetaildaoImpl;
 import com.Carbooking.model.CarOrder;
+import com.Carbooking.model.OrderDetail;
 import com.Carbooking.model.UserDetail;
 
 
 /**
  * Servlet implementation class CustomerDetailServlet
  */
-@WebServlet("/custdetail")
+@WebServlet("/custdetails")
 public class CustomerDetailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -29,7 +32,8 @@ public class CustomerDetailServlet extends HttpServlet {
 
 		HttpSession session=request.getSession();
 
-		int userid=(int)session.getAttribute("userid");
+		 UserDetail user=(UserDetail)session.getAttribute("currentUser"); 
+		int userid= user.getUserId();
 //		session.getAttribute("userid");
 //		UserDetail san=new UserDetail();
 //		UserDetaildaoImpl dan=new UserDetaildaoImpl();
@@ -60,15 +64,20 @@ public class CustomerDetailServlet extends HttpServlet {
 		CarorderDaoImpl daon=new CarorderDaoImpl();
 		
 		daon.insert(conf);
+		
+		OrderDetail dan=new OrderDetail(userid);
+		OrderDetailDaoImpl dao=new OrderDetailDaoImpl();
+		dao.delete(dan);
 		UserDetail use=new UserDetail(price,userid);
 		System.out.println("hi maari");
 		UserDetaildaoImpl san=new UserDetaildaoImpl();
-//		int wallet=san.wallte(use);
-//		price=wallet-price;
+
 	      san.updateWallet(price, userid);
 		
-	
-		response.sendRedirect("ShowProducts.jsp");
+	         RequestDispatcher dd=request.getRequestDispatcher("invoice");
+	         dd.forward(request, response);
+	         
+		
 		
 		
 		
