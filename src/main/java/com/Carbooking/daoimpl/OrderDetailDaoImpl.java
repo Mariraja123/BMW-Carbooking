@@ -26,7 +26,7 @@ public class OrderDetailDaoImpl {
 	stmt.setInt(3, obj.getPrice());
 	
 	int i=stmt.executeUpdate();
-	System.out.println(i+"saved on cart");
+	
     }
 	public  int Findorder() 
     {
@@ -73,7 +73,7 @@ public class OrderDetailDaoImpl {
 			 PreparedStatement stmt=Con.prepareStatement(delete);
 	    	 stmt.setInt(1, obj1.getOrder_id());
 	    	 int i=stmt.executeUpdate();
-	    	 System.out.println(i+"deleted in cart");
+	    	
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

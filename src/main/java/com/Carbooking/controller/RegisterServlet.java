@@ -16,7 +16,7 @@ public class RegisterServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		System.out.println("hello1");
+		
 		String firstName=req.getParameter("first_name");
 		String email=req.getParameter("email");
 		String password=req.getParameter("password");
@@ -25,7 +25,7 @@ public class RegisterServlet extends HttpServlet {
 		
 		UserDetail ud=new UserDetail(firstName,email,password,phone);
 		UserDetaildaoImpl udd=new UserDetaildaoImpl();
-		System.out.println("hello");
+		
 		try {
 			udd.insert(ud);
 			resp.sendRedirect("Login.jsp");

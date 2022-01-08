@@ -114,9 +114,15 @@ body {
 
    
   </div>
-  <% UserDetaildaoImpl dao= new UserDetaildaoImpl();
-	List<UserDetail> view=new ArrayList<UserDetail>();
-	view=UserDetaildaoImpl.alluser();%>
+  <% 
+   UserDetail user=(UserDetail)session.getAttribute("currentUser"); 
+   int userid=user.getUserId();
+   UserDetail san=new UserDetail(userid);
+   UserDetaildaoImpl dao= new UserDetaildaoImpl();
+   List<UserDetail> listproduct=dao.currentuser(san);
+   
+   
+	%>
           <h2 class="Userdetail">User Detail</h2>
           
         
@@ -125,19 +131,23 @@ body {
             <tbody>
                 <tr>
                 <%int count=0;
-                for(UserDetail userdetail: view){
+                for(UserDetail userdetail: listproduct){
                 	%>
                     <td>
-                        <table id="carproducts">
+                        <table id="carproduct">
                             <tbody>
                                 <tr>
                                      
                                     <td class="viewall">
-                                        <span>Namee : <%=userdetail.getFirst_name()%> </span><br>
+                                        <span>Name : <%=userdetail.getFirst_name()%> </span><br>
                                         <span>password : <%=userdetail.getCpassword()%>  </span><br>
                                         <span>Email : <%=userdetail.getEmail()%> </span><br>
                                       
                                         <span>phone number: <%=userdetail.getPhoneno()%></span><br>
+                                         <span>userid:<%= userdetail.getUserId() %></span><br>
+                                          <span>usertype:<%= userdetail.getUsertype() %></span><br>
+                                           <span>wallet:<%= userdetail.getWallet()%></span>
+                                           
                                             
                                        
                                     </td>

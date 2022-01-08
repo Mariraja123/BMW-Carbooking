@@ -112,6 +112,7 @@
     <a href="#about">About</a>
    
   </div>
+  <br><br>
 <form action="addprice" method="post">
 <label>Enter your carid:</label>
 <input type="text" name="carid"><br><br>

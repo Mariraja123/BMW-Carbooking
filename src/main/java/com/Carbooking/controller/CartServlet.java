@@ -22,7 +22,7 @@ public class CartServlet extends HttpServlet {
 
 //		int userid=Integer.parseInt(session.getAttribute("currentUser").toString());
 		 UserDetail user=(UserDetail)session.getAttribute("currentUser"); 
-		System.out.println(user);
+		
 		String carid=session.getAttribute("car_id").toString();
 		
 		int price=Integer.parseInt(session.getAttribute("price").toString());

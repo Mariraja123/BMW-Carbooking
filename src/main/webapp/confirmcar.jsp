@@ -109,8 +109,16 @@ padding:70px;
       float: right;
       display: block;
     }
+      .one
+   {
+   position:absolute;
+   left:1200px;
+   width:80px;
+   font-size:30px;
+   background-color:red;
+   }
 </style>
-</style>
+
 </head>
 <body>
 <div class="topnav" id="myTopnav">
@@ -125,11 +133,13 @@ padding:70px;
     </div>
    
    
-  </div>
+ <div class="one">
+ <a href="ShowProducts.jsp">Back</a>
+ </div>
  <form  method="post">
 <% CarProductDaoImpl dao=new CarProductDaoImpl();
 String carid =session.getAttribute("car_id").toString();
-System.out.println(carid);
+
 CarProduct car = new CarProduct(carid);
 CarProduct carProduct = dao.selectproduct(car);
 %>
@@ -154,7 +164,7 @@ CarProduct carProduct = dao.selectproduct(car);
                                         <span>carmodel : <%=carProduct.getCarModel()%> </span><br>
                                         <span>cartype : Rs.<%=carProduct.getCarType() %> </span><br>
                                         <span>fueltype: <%=carProduct.getFuelType() %></span><br>
-                                          <span>Price:<%=carProduct.getPrice() %>" </span>
+                                          <span>price:<%= session.getAttribute("price") %>
                                        <%session.setAttribute("carname", carProduct.getCar_name()); %>
                                       <button> <a href="CustomerDetail.jsp">confirm booking </a></button>
                                        <button> <a href="ShowProducts.jsp">Cancel booking</a></button>

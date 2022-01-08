@@ -87,73 +87,18 @@ button:hover{
 
 <body>
 
-   <!--   <div class="container">
-
-        <h2 style="text-align: center;">Sign In</h2>
-        <br><br>
-        <div class="col-lg-12 " id="one">
-            <form  action="sample1"  method="post">
-                <div class="row">
-                    <div class=" col-md-6">
-                        <div class="form-group">
-                            <input type="text" name="first_name" id="first_name" class="form-control"
-                                placeholder="First Name" required>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <input type="email" name="email" id="email" class="form-control"
-                                placeholder="Email Address"required>
-                        </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <input type="number" name="number" id="number" class="form-control"
-                                    placeholder="Enter your phone number"required>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="row">
-                        <div class=" col-md-6">
-                            <div class="form-group">
-                                <input type="password" name="password" id="password" class="form-control"
-                                    placeholder="Password" required>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                    <div>
-                        
-                 <!--    <a href="index.html" value="Register" class="btn btn-dark btn-block"> Register</a> -->
-                   <!--  <button type="submit">Register</button>-->
-                
-                    </div>
-                    </div>
-                    <br><br>
-                    
-
-            </form>
-            
-            
-        </div>
-
-
-    </div>--->
 <div class="container">
     <div class="content">
        <img src="https://res.cloudinary.com/debbsefe/image/upload/f_auto,c_fill,dpr_auto,e_grayscale/image_fz7n7w.webp" alt="header-image" class="cld-responsive">
             <h1 class="form-title">Register Here</h1 >
             <form action="sample1"  method="post">
-               <input type="text" placeholder="NAME" name="first_name">
+               <input type="text" placeholder="NAME" name="first_name" pattern="[A-Za-z]{3,}" title="minimum 3 characters should be there." required>
             <div class="beside">
-                <input type="number" placeholder="PHONE NUMBER"  name="number" >
+                <input type="number" placeholder="PHONE NUMBER"  name="number" pattern="[6-9]{1}[0-9]{9}" minlength="10" maxlength="10" required>
              
             </div>
-                <input type="email" placeholder="EMAIL ADDRESS" name="email">
-                <input type="text" placeholder="password"  name="password"><br>
+                <input type="email" placeholder="EMAIL" name="email" pattern="[a-z0-9]+[@][a-zA-Z]+[.][a-z]+"  title="You have to insert @ and . in the username ex.abc@gmail.com" required>
+                <input type="text" placeholder="password"  name="password" pattern="(?=.*[0-9])(?=.*[@#$%*!^()_+])(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Minimum 8 characters should be there.There should be atleast one numeric,special character,capital letter and small letter."required ><br>
                 <button type="submit">Register</button>
             </form>
         </div>

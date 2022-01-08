@@ -17,7 +17,7 @@ public class UserDetail {
 		this.userId = userId;
 		this.first_name = first_name;
 		this.cpassword = cpassword;
-		Email = email;
+		this.Email = email;
 		this.phoneno = phoneno;
 		this.usertype = usertype;
 		this.wallet = wallet;
@@ -141,6 +141,23 @@ public class UserDetail {
 		this.wallet=wallet;
 		this.userId=user;
 		
+	}
+
+	public UserDetail(String firstname, String password, String email, long phone, int userid, String usertype, long wallet) {
+		this.first_name=firstname;
+		this.cpassword=password;
+		this.Email=email;
+		this.phoneno=phone;
+		this.userId=userid;
+		this.usertype=usertype;
+		this.wallet=wallet;
+		// TODO Auto-generated constructor stub
+	}
+
+	public UserDetail(Long wallet, String Email) {
+		// TODO Auto-generated constructor stub
+		this.wallet=wallet;
+		this.Email=Email;
 	}
 
 //	public UserDetail(String string, String string2, String string3, long parseLong, int int1, String string4) {

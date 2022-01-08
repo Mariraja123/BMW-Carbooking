@@ -77,7 +77,7 @@ public class CarProductDaoImpl {
 	   	stmt.setLong(4, obj1.getPrice());
 	   	  stmt.setString(5, obj1.getCar_id());
 	   	  int i=stmt.executeUpdate();
-	   	  System.out.println(i);
+	   	 
 	} catch (ClassNotFoundException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
@@ -101,7 +101,7 @@ public class CarProductDaoImpl {
 	    	 stmt.setString(5, obj1.getCarType());
 	    	 stmt.setLong(6, obj1.getPrice());
 	    	 int i=stmt.executeUpdate();
-	    	 System.out.println(i);
+	    	
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -120,7 +120,7 @@ public class CarProductDaoImpl {
 			 PreparedStatement stmt1=Con.prepareStatement(delete);
 	    	 stmt1.setString(1, obj1.getCar_id());
 	    	 int i=stmt1.executeUpdate();
-	    	 System.out.println(i+"deleted");
+	    	 
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -160,15 +160,15 @@ public class CarProductDaoImpl {
      }
     	 public  static CarProduct selectproduct(CarProduct obj) throws ClassNotFoundException, SQLException
     	 {
-    		 System.out.println("hai0");
+    		
     		 CarProduct cars=null;
     		 String search="Select * from car_details where car_id=?";
         	 Connection Con=Connectionutil.getDBconnection();
         	 PreparedStatement stmt1=Con.prepareStatement(search);
-        	 System.out.println("hai1");
+        	
         	stmt1.setString(1, obj.getCar_id());
         	 ResultSet rs=stmt1.executeQuery();
-        	 System.out.println("hai2");
+        	 
         	 
         	 while(rs.next())
         	 {
@@ -196,7 +196,7 @@ public class CarProductDaoImpl {
     			    	 if(rs.next())
     			    	 {
     			             carname=rs.getString(1);
-    			             System.out.println(carname);
+    			             
     			    	 }
     			    	 
     			} catch (ClassNotFoundException e) {

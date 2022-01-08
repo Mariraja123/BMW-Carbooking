@@ -251,8 +251,8 @@ form .create-account:hover {
           <p>Connect with friends and the world</p>
         </div>
           <form action="loginval" method="post">
-            <input type="text" placeholder="Email"  name="uname" required />
-            <input type="password" placeholder="Password" name="upass" required>
+            <input type="text" placeholder="Email"  name="uname" pattern="[a-z0-9]+[@][a-zA-Z]+[.][a-z]+" required />
+            <input type="password" placeholder="Password" name="upass" pattern="(?=.*[0-9])(?=.*[@#$%*!^()_+])(?=.*[a-z])(?=.*[A-Z]).{8,}"required>
             <button class="login" type="submit">Log In</button>
             <a href="Forgetpassword.jsp">Forgot Password ?</a>
             <hr>

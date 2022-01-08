@@ -1,6 +1,7 @@
 package com.Carbooking.daoimpl;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -19,8 +20,9 @@ public class CarorderDaoImpl {
 
 	public static void insert(CarOrder obj)
 	{
+		
 //		String update="update User_details set userwallet=(select userwallet from user_details where user_id=?)-? where user_id=?)";
-		String insert="insert into car_orders(Order_id,Car_id,Car_name,Expecteddate,address) values(?,?,?,sysdate+?,?)";
+		String insert="insert into car_orders(Order_id,Car_id,Car_name,Expecteddate,address) values(?,?,?,?,?)";
 		  Connection Con;
 		 
 		  
@@ -34,12 +36,11 @@ public class CarorderDaoImpl {
 		
 			
 //			stmt.setString(1, obj.getStatus());
-//			stmt.setInt(4, new java.sql.Date (obj.getExpecteddate().getTime()));
-			stmt.setInt(4, obj.getExpecteddate());
-			stmt.setString(5, obj.getAddress());
-//			stmt.setInt(6, amount1);
+		stmt.setDate(4,new java.sql.Date(obj.getExpecteddate().getTime()));
+			
+			stmt.setString(5, obj.getAddress());		
 			int i=stmt.executeUpdate();
-			System.out.println(i+"booked succesfully");
+			
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -57,7 +58,7 @@ public class CarorderDaoImpl {
 			Con = Connectionutil.getDBconnection();
 			PreparedStatement stmt=Con.prepareStatement(allbook);
 			ResultSet rs=stmt.executeQuery();
-			System.out.println("haii");
+			
 			while(rs.next())
 			{
 			     CarOrder details=new CarOrder(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5));
@@ -73,14 +74,14 @@ public class CarorderDaoImpl {
 		
 		return viewbooking;
 	}
-	public static void update(CarOrder obj) throws ClassNotFoundException, SQLException {
+	public  void update(CarOrder obj) throws ClassNotFoundException, SQLException {
 		String log1 = "update Car_orders set status=? where order_id=?";
 		Connection Con = Connectionutil.getDBconnection();
 		PreparedStatement stmt = Con.prepareStatement(log1);
 		stmt.setString(1, obj.getStatus());
 		stmt.setInt(2, obj.getOrder_id());
 		int i = stmt.executeUpdate();
-		System.out.println(i + "updated");
+	
 
 	}
 	public static  List<CarOrder> showview() 

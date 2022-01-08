@@ -23,21 +23,15 @@ public class LoginServlet extends HttpServlet {
 		HttpSession session = req.getSession();
 		String username=req.getParameter("uname");
 		String password=req.getParameter("upass");
-		System.out.println(username+password);
+		
 		//UserDetail user=new UserDetail(username, password);
 		UserDetaildaoImpl userDao=new UserDetaildaoImpl();
 		String rs;
 		try {
-//			rs = uddi.loginval(username, password);
-//			System.out.println(rs);
-//			if(rs != null) {
-//				UserDetail ud1 = new UserDetail(username);
-//				UserDetaildaoImpl userDetaildaoImpl = new UserDetaildaoImpl();
-//				int userid = userDetaildaoImpl.username(ud1);
-//				session.setAttribute("userid",userid );
-//				System.out.println("use");
+
 			UserDetail currentUser=userDao.loginval(username, password);
-			System.out.println(currentUser);
+			session.setAttribute("username", currentUser.getFirst_name());
+			
 				if(currentUser!=null) {
 					if(currentUser.getUsertype().equals("user"))
 					{
@@ -45,16 +39,11 @@ public class LoginServlet extends HttpServlet {
 						
 					resp.sendRedirect("ShowProducts.jsp");
 				}else if(currentUser.getUsertype().equals("admin")) {
-//					UserDetail ud2 = new UserDetail(username);
-//					UserDetaildaoImpl userDetaildaoImpl2 = new UserDetaildaoImpl();
-//					int userid2 = userDetaildaoImpl.username(ud1);
+
 					session.setAttribute("admin",currentUser);
 					resp.sendRedirect("Admin.jsp");
 				}
-				else
-				{
-					System.out.println("Invalid User Name password");
-				}
+				
 		}
 			}
 		 catch (ClassNotFoundException | SQLException e) {
@@ -63,13 +52,7 @@ public class LoginServlet extends HttpServlet {
 		}
 		
 		
-//		if(rs.equals("admin")) {
-//			System.out.println("admin");
-//			resp.sendRedirect("Main.jsp");
-//		}
-//		else {
-//			resp.sendRedirect("ShowProducts.jsp");
-//		}
+
 		
 	}
 }

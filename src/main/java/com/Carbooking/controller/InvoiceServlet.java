@@ -23,18 +23,18 @@ public class InvoiceServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 //		doGet(request, response);
-		System.out.println("pothiinvoice");
+		
 		HttpSession session=request.getSession();
 		 UserDetail user=(UserDetail)session.getAttribute("currentUser");
 		int userid=user.getUserId();
 		
-		System.out.println("hel2"+userid);
+	
 		String carid=(session.getAttribute("car_id").toString());
-		System.out.println(carid);
+		
 		int price=Integer.parseInt(session.getAttribute("price").toString());
-		System.out.println(price);
+		
 		String Carname=session.getAttribute("carname").toString();
-		System.out.println(Carname);
+	
 		Invoice add=new Invoice(carid,userid,price,Carname);
 		InvoiceDaoImpl dao=new InvoiceDaoImpl();
 		dao.insert(add);

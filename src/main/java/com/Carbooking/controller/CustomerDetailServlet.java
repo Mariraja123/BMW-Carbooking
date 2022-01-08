@@ -1,6 +1,9 @@
 package com.Carbooking.controller;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -24,14 +27,14 @@ import com.Carbooking.model.UserDetail;
 @WebServlet("/custdetails")
 public class CustomerDetailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	
  
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
-
+        
 		HttpSession session=request.getSession();
-
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
 		 UserDetail user=(UserDetail)session.getAttribute("currentUser"); 
 		int userid= user.getUserId();
 //		session.getAttribute("userid");
@@ -39,7 +42,7 @@ public class CustomerDetailServlet extends HttpServlet {
 //		UserDetaildaoImpl dan=new UserDetaildaoImpl();
 //		int wallet=dan.updateWallet(san);
 //		System.out.println(wallet);
-		int price=Integer.parseInt(request.getParameter("advance"));
+		long price=Long.parseLong(request.getParameter("advance"));
 //		wallet=wallet-price;
 //		UserDetail abc=new UserDetail();
 //		abc.setWallet(wallet);
@@ -49,10 +52,19 @@ public class CustomerDetailServlet extends HttpServlet {
 		String addres=request.getParameter("address");
 		String  city=request.getParameter("city");
 		String  pincode=request.getParameter("code");
+		Date dt=null;
+		try {
+			dt = sdf.parse(request.getParameter("Expected"));
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		String address=custname+","+addres+","+city+","+pincode;
 		
-		int dates=Integer.parseInt(request.getParameter("Expected"));
+		
+		
+		
 		
 		
 		String Carid=(String)session.getAttribute("car_id");
@@ -60,7 +72,7 @@ public class CustomerDetailServlet extends HttpServlet {
 //		session.setAttribute("amount", amount);
 		OrderDetailDaoImpl order=new OrderDetailDaoImpl();
 		int orderid=order.Findorder();
-		CarOrder conf=new CarOrder(orderid,Carid,carnames,dates,address);
+		CarOrder conf=new CarOrder(orderid,Carid,carnames,dt,address);
 		CarorderDaoImpl daon=new CarorderDaoImpl();
 		
 		daon.insert(conf);
@@ -68,16 +80,19 @@ public class CustomerDetailServlet extends HttpServlet {
 		OrderDetail dan=new OrderDetail(userid);
 		OrderDetailDaoImpl dao=new OrderDetailDaoImpl();
 		dao.delete(dan);
+		//update wallet
 		UserDetail use=new UserDetail(price,userid);
-		System.out.println("hi maari");
+	
 		UserDetaildaoImpl san=new UserDetaildaoImpl();
 
-	      san.updateWallet(price, userid);
-		
+	     int res = san.updateWallet(price, userid);
+		if(res > 0) {
 	         RequestDispatcher dd=request.getRequestDispatcher("invoice");
 	         dd.forward(request, response);
 	         
-		
+		}else {
+			response.getWriter().println("Low Balance!!");
+		}
 		
 		
 		

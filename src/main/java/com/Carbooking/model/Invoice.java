@@ -4,6 +4,10 @@ import java.util.Objects;
 
 public class Invoice {
     
+	public Invoice(int user_id) {
+		super();
+		this.user_id = user_id;
+	}
 	private int invoice_id;
      private String car_id;
 	private int user_id;

@@ -1,22 +1,44 @@
-<%-- <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+ <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
      <%@ page import="com.Carbooking.daoimpl.InvoiceDaoImpl" %>
     <%@ page import="java.util.List" %>
     <%@ page import="com.Carbooking.model.Invoice" %>
+    <%@ page import="com.Carbooking.model.UserDetail" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<style>
+.car
+{
+position:absolute;
+margin-top:150px;
+margin-left:500px;
+}
+</style>
 
 </head>
 
 
 <body>
- 
+  <form >
+<% InvoiceDaoImpl dao=new InvoiceDaoImpl();
+UserDetail user=(UserDetail)session.getAttribute("currentUser");
+int userid=user.getUserId();
+Invoice ord=new Invoice(userid);
+
+
+
+List<Invoice> listproduct=dao.view(ord);
+
+
+%>
+
+</form>
 
         
-        <div class="recently added list">
+        
         <table>
             <tbody>
                 <tr>
@@ -29,14 +51,13 @@
                                 <tr>
                                    
                                     <td class="car">
-                                         <span>invoiceid: <%= order.getInvoice_id() %></span>
-                                        <span> orderid : <%= order.getOrder_id() %> </span><br>
+                                         <h1>invoiceid: <%= order.getInvoice_id() %></h1>
+                                        <h1>user name : <%=session.getAttribute("username")%>  </h1><br>
+                                        <h1>price : <%=order.getPrice()%> </h1><br>
+                                        <h1>Carname : <%=order.getCar_name() %> </h1><br>
                                         
-                                        <span>userid : <%=order.getUser_id()%>  </span><br>
-                                        <span>carmodel : <%=order.getPrice()%> </span><br>
-                                        <span>price : <%=order.getCar_name() %> </span><br>
                                       
-                                      
+                                       <a href="ShowProducts.jsp">click me</a>
                                       
                                         
                                     </td>
@@ -47,7 +68,7 @@
                     </td>
                     
                        <% count ++;
-                       if(count==3){ %> 
+                       if(count==1){ %> 
                     	   </tr>
                     	   <tr>
                     	 
@@ -56,14 +77,12 @@
                 </tr>
             </tbody>
         </table>
-         
-        </div>
-    </div>
-   </div>
+        
+    
 
 </body>
 </html>
 
    
 </body>
-</html> --%>
+</html> 

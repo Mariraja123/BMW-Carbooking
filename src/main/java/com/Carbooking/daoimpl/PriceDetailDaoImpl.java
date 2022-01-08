@@ -11,8 +11,8 @@ import com.connection.*;
 
 
 
-public class PriceDetailDaoImpl {
-	public static void insert(Pricedetail obj)
+public  class PriceDetailDaoImpl {
+	public  void insert(Pricedetail obj)
     {
 		
 	String insert="insert into price_detail (car_id,car_name,Exshowroom_price,road_tax,insurance,onroad_price) values(?,?,?,?,?,?)";
@@ -28,7 +28,7 @@ public class PriceDetailDaoImpl {
 		stmt.setInt(5, obj.getInsurance());
 		stmt.setInt(6, obj.getOnroadprice());
 		int i=stmt.executeUpdate();
-		System.out.println(i);
+		
 	} catch (ClassNotFoundException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
@@ -52,7 +52,7 @@ public class PriceDetailDaoImpl {
 	     stmt.setInt(3, obj1.getInsurance());
 	      stmt.setString(4, obj1.getCar_id());
 	  	  int i=stmt.executeUpdate();
-	  	  System.out.println(i);
+	  	 
 	} catch (ClassNotFoundException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
@@ -69,7 +69,7 @@ public class PriceDetailDaoImpl {
     	PreparedStatement stmt=Con.prepareStatement(delete);
     	stmt.setString(1, obj.getCar_id());
     	int i=stmt.executeUpdate();
-    	System.out.println(i);
+    	
     }
     
     public static int Findproduct(String obj) 
@@ -117,7 +117,7 @@ public class PriceDetailDaoImpl {
    
     	stmt1.setString(1, obj.getCar_id());
     	 ResultSet rs=stmt1.executeQuery();
-    	 System.out.println("hai2");
+    	 
     	 
     	 while(rs.next())
     	 {

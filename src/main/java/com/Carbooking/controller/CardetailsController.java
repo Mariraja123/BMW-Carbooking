@@ -14,7 +14,7 @@ public class CardetailsController extends HttpServlet{
 protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	
 	String carid = req.getParameter("carlink");
-	System.out.println(carid);
+
 	HttpSession session = req.getSession();
 	session.setAttribute("caridcardetails", carid);
 	resp.sendRedirect("SelectCar.jsp");

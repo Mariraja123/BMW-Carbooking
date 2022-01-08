@@ -13,14 +13,14 @@
 <style>
 
 img{
-width: 250px;
-padding:70px;
+width: 150px;
+padding:50px;
 }
 
  body {
       margin: 0;
       font-family: Arial;
-      background-image:url("https://images.unsplash.com/photo-1560253787-9c3babc1fab2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTd8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60");
+      
       background-size:cover;
       height:300px;
     
@@ -116,8 +116,8 @@ padding:70px;
      <a href="Login.jsp" style=float:right>Logout</a>
    
     <a href="#about">About</a>
-    <a href="#about">contact</a>
-    <button><%= user.getWallet() %>></button>
+    <a href="Userhistory.jsp">user</a>
+    
        
       </div>
     </div>
@@ -145,14 +145,16 @@ List<CarProduct> listproduct=dao.showview();
                         <table id="carproduct">
                             <tbody>
                                 <tr>
-                                    <td><img src=<%=carProduct.getImages() %> alt="maari"></td>    
+                                
+                                    <td><img src="<%=carProduct.getCar_name()%>.jpg" alt="img"></td>    
                                     <td class="car">
                                         <span>carid : <%=carProduct.getCar_id()%> </span><br>
                                         <span>carname : <%=carProduct.getCar_name()%>  </span><br>
                                         <span>carmodel : <%=carProduct.getCarModel()%> </span><br>
                                         <span>cartype : <%=carProduct.getCarType() %> </span><br>
                                         <span>fueltype: <%=carProduct.getFuelType() %></span><br>
-                                       <span> price:<%=carProduct.getPrice() %>"</span>
+                                    
+                                      
                                        <a href="SelectCar.jsp?car_id=<%=carProduct.getCar_id() %>"><button>view</button></a>
                                       
                                         

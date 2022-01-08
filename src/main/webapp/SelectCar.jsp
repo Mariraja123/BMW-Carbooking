@@ -3,6 +3,8 @@
     <%@ page import="com.Carbooking.daoimpl.CarProductDaoImpl" %>
     <%@ page import="java.util.List" %>
     <%@ page import="com.Carbooking.model.CarProduct" %>
+      <%@ page import="com.Carbooking.model.Pricedetail" %>
+    <%@ page import ="com.Carbooking.daoimpl.PriceDetailDaoImpl" %>
     
 <!DOCTYPE html>
 <html>
@@ -98,6 +100,20 @@ padding:130px;
       float: right;
       display: block;
     }
+   .one
+   {
+   position:absolute;
+   left:1200px;
+   width:80px;
+   font-size:30px;
+   background-color:red;
+   }
+    .car
+    {
+      position:absolute;
+      left:620px;
+      top:420px;
+    }
 </style>
 </head>
 <body>
@@ -123,12 +139,18 @@ String carid = request.getParameter("car_id");
 CarProduct car = new CarProduct(carid);
 CarProduct carProduct = dao.selectproduct(car);
 
-
+PriceDetailDaoImpl dan=new PriceDetailDaoImpl();
+String carids = request.getParameter("car_id");
+Pricedetail cars = new Pricedetail(carids);
+Pricedetail price = dan.selectproduct(cars);
 
 %>
 
 
  <h2 class="CarProducts">Car Products</h2>
+ <div class="one">
+ <a href="ShowProducts.jsp">Back</a>
+ </div>
         
         <div class="recently added list">
         <table>
@@ -140,17 +162,16 @@ CarProduct carProduct = dao.selectproduct(car);
                             <tbody>
                                 <tr>
                                     <td><img src=<%=carProduct.getImages() %> alt="maari"></td>    
-                                    <td class="car">
+                                    <td class="cars">
                                     
                                         <span>carid : <%=carProduct.getCar_id()%> </span><br>
                                         <span>carname : <%=carProduct.getCar_name()%>  </span><br>
                                         <span>carmodel : <%=carProduct.getCarModel()%> </span><br>
                                         <span>cartype : Rs.<%=carProduct.getCarType() %> </span><br>
                                         <span>fueltype: <%=carProduct.getFuelType() %></span><br>
-                                          <span>Price:<%=carProduct.getPrice() %> </span>
-                                        <%session.setAttribute("price", carProduct.getPrice()); %>
+                                         
                                           <%session.setAttribute("car_id", carProduct.getCar_id()); %>
-                                         <a href="confirmcar.jsp?car_id=<%=carProduct.getCar_id() %>"> <button type="submit">Add to cart</button></a>
+                                         <a href="confirmcar.jsp?car_id=<%=carProduct.getCar_id() %>">  <br><button type="submit" style=margin-left:300px;>Add to cart</button></a>
                                           
                                          </form></span>
                                         
@@ -168,8 +189,45 @@ CarProduct carProduct = dao.selectproduct(car);
         </table>
          
         </div>
+        <div class="two">
+        <table>
+            <tbody>
+                <tr>
+               
+                    <td>
+                        <table id="carproduct">
+                            <tbody>
+                                <tr>
+                                    
+                                    <td class="car">
+                                    
+                                        <span >showroomprice : <%=price.getExshowroomprice()%> </span><br>
+                                        <span>roadtax : <%=price.getRoadtax()%> </span><br>
+                                        <span>insrance:<%=price.getInsurance() %></span><br>
+                                        <span>onroadprice : <%=price.getOnroadprice() %> </span><br>
+                                          <%session.setAttribute("price", price.getOnroadprice()); %>
+                                       
+                                        <span>
+                                 
+                                          
+                                          
+                                         </span>
+                                        
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>  
+                            
+                    </td>
+                       
+                  
+                       
+                </tr>
+            </tbody>
+        </table>
+         
+        </div>
     </div>
-   </div>
 
 </body>
 </html>

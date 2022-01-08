@@ -4,6 +4,8 @@
     <%@ page import="com.Carbooking.daoimpl.OrderDetailDaoImpl" %>
     <%@ page import="java.util.List" %>
     <%@ page import="com.Carbooking.model.OrderDetail" %>
+    <%@ page import="com.Carbooking.model.UserDetail" %>
+  
     
 <!DOCTYPE html>
 <html>
@@ -13,10 +15,10 @@
 
  <form >
 <% OrderDetailDaoImpl dao=new OrderDetailDaoImpl();
-int user =Integer.parseInt(session.getAttribute("userid").toString());
-System.out.println(user);
+UserDetail user=(UserDetail)session.getAttribute("currentUser");
+int userid=user.getUserId();
 OrderDetail ord=new OrderDetail();
-ord.setUserId(user);
+ord.setUserId(userid);
 List<OrderDetail> listproduct=dao.view(ord);
 
 
@@ -62,7 +64,8 @@ List<OrderDetail> listproduct=dao.view(ord);
                     	   </tr>
                     	   <tr>
                     	 
-                     <%count=0; }}%>  
+                     <%count=0; }}
+                     %>  
                                      
                 </tr>
             </tbody>
