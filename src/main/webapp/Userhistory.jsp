@@ -97,8 +97,8 @@ body {
 </head>
 <body>
     <div class="topnav" id="myTopnav">
-    <a href="#home" >Home</a>
-    <a href="#news">News</a>
+    
+    <a href="Admin.jsp">Home</a>
     <a href="Login.jsp" style=float:right>Logout</a>
     <a href="ViewUser.jsp" class="active">UserHistory</a>
     <div class="dropdown">
@@ -159,6 +159,7 @@ body {
                        <% count ++;
                        if(count==5){ %> 
                     	   </tr>
+                    	   
                     	   <tr>              
                      <%count=0; }}%>  
                        

@@ -114,13 +114,13 @@ padding:50px;
     <a href="#home" class="active">ShowProduct</a>
    <a href="AddCart.jsp">Cart</a>
      <a href="Login.jsp" style=float:right>Logout</a>
-   
+        <a href="Search.jsp">Search</a>
     <a href="#about">About</a>
     <a href="Userhistory.jsp">user</a>
     
        
       </div>
-    </div>
+    
    
    
   </div>

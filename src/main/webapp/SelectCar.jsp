@@ -19,6 +19,10 @@ padding:130px;
  body {
       margin: 0;
       font-family: Arial;
+      
+      background-size:cover;
+      height:300px;
+    
 
     }
 
@@ -118,15 +122,15 @@ padding:130px;
 </head>
 <body>
 <div class="topnav" id="myTopnav">
-    <a href="#home">ShowProduct</a>
-   
+    <a href="#home" class="active">ShowProduct</a>
+   <a href="AddCart.jsp">Cart</a>
      <a href="Login.jsp" style=float:right>Logout</a>
-    <a href="AddCart.jsp">Cart</a>
+        <a href="Search.jsp">Search</a>
     <a href="#about">About</a>
-    <a href="#about">contact</a>
+    <a href="Userhistory.jsp">user</a>
+    
        
       </div>
-    </div>
    
    
   </div>
@@ -161,7 +165,7 @@ Pricedetail price = dan.selectproduct(cars);
                         <table id="carproduct">
                             <tbody>
                                 <tr>
-                                    <td><img src=<%=carProduct.getImages() %> alt="maari"></td>    
+                                    <td><img src="<%=carProduct.getCar_name()%>.jpg" alt="maari"></td>    
                                     <td class="cars">
                                     
                                         <span>carid : <%=carProduct.getCar_id()%> </span><br>

@@ -21,10 +21,11 @@ width: 250px;
 padding:70px;
 }
 
+
  body {
       margin: 0;
       font-family: Arial;
-      background-image:url("https://images.unsplash.com/photo-1560253787-9c3babc1fab2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTd8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60");
+      
       background-size:cover;
       height:300px;
     
@@ -122,14 +123,16 @@ padding:70px;
 </head>
 <body>
 <div class="topnav" id="myTopnav">
-    <a href="#home" >ShowProduct</a>
+    <a href="#home" class="active">ShowProduct</a>
    <a href="AddCart.jsp">Cart</a>
      <a href="Login.jsp" style=float:right>Logout</a>
-   
+        <a href="Search.jsp">Search</a>
     <a href="#about">About</a>
-    <a href="#about">contact</a>
+    <a href="Userhistory.jsp">user</a>
+    
        
       </div>
+   
     </div>
    
    
@@ -156,7 +159,7 @@ CarProduct carProduct = dao.selectproduct(car);
                         <table id="carproduct">
                             <tbody>
                                 <tr>
-                                    <td><img src=<%=carProduct.getImages() %> alt="maari"></td>    
+                                    <td><img src="<%=carProduct.getCar_name() %>.jpg" alt="maari"></td>    
                                     <td class="car">
                                     
                                         <span>carid : <%=carProduct.getCar_id()%> </span><br>

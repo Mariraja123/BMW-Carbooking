@@ -11,6 +11,16 @@ public class CarOrder {
 	private String Carname;
 	private String status;
 	private Date Expecteddate;
+	public CarOrder(int order_id, String car_id, String carname, String status, Date expecteddate, String address) {
+		super();
+		this.order_id = order_id;
+		this.car_id = car_id;
+		this.Carname = carname;
+		this.status = status;
+		Expecteddate = expecteddate;
+		this.address = address;
+	}
+
 	private String address;
 	
 	public CarOrder(int order_id, String car_id, String carname, Date expecteddate) {

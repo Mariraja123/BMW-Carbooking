@@ -5,28 +5,252 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
-<link href="http://code.jquery.com/ui/1.9.2/themes/smoothness/jquery-ui.css" rel="stylesheet" />
-<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
-<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+
+body {
+      margin: 0;
+      font-family: Arial;
+      
+      background-size:cover;
+      height:300px;
+    
+
+    }
+
+    .topnav {
+      overflow: hidden;
+      background-color: #333;
+    }
+
+    .topnav a {
+      float: left;
+      display: block;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+
+    .active {
+      background-color: #04AA6D;
+      color: white;
+    }
+
+    .topnav .icon {
+      display: none;
+    }
+
+    .dropdown {
+      float: left;
+      overflow: hidden;
+    }
+
+    .dropdown .dropbtn {
+      font-size: 17px;
+      border: none;
+      outline: none;
+      color: white;
+      padding: 14px 16px;
+      background-color: inherit;
+      font-family: inherit;
+      margin: 0;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      float: none;
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      text-align: left;
+    }
+
+    .topnav a:hover,
+    .dropdown:hover .dropbtn {
+      background-color: #555;
+      color: white;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+
+    .topnav a.icon {
+      float: right;
+      display: block;
+    }
+    body {
+  font-family: Arial;
+  font-size: 17px;
+  padding: 8px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.row {
+
+ margin-left:500px;
+ background-color:gray;
+ width:fit-content;
+ 
+}
+
+.col-25 {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+}
+
+.col-50 {
+  -ms-flex: 50%; /* IE10 */
+  flex: 50%;
+}
+
+.col-75 {
+  -ms-flex: 75%; /* IE10 */
+  flex: 75%;
+}
+
+.col-25,
+.col-50,
+.col-75 {
+  padding: 0 16px;
+}
+
+.container {
+  background-color: #f2f2f2;
+  padding: 5px 20px 15px 20px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+}
+
+input[type=text] {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+input[type=Date] {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+input[type=number] {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+input[type=submit] {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+label {
+  margin-bottom: 10px;
+  display: block;
+}
+
+.icon-container {
+  margin-bottom: 20px;
+  padding: 7px 0;
+  font-size: 24px;
+}
+
+.btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  width: 100%;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.btn:hover {
+  background-color: #45a049;
+}
+
+a {
+  color: #2196F3;
+}
+
+hr {
+  border: 1px solid lightgrey;
+}
+
+    
+</style>
 </head>
 <body>
-
+<div class="topnav" id="myTopnav">
+    <a href="#home" class="active">ShowProduct</a>
+   <a href="AddCart.jsp">Cart</a>
+     <a href="Login.jsp" style=float:right>Logout</a>
+        <a href="Search.jsp">Search</a>
+    <a href="#about">About</a>
+    <a href="Userhistory.jsp">user</a>
+    
+       
+      </div>
 <h1>Customer Details:</h1>
 <form action="custdetails" method="post">
-<label>Enter your name:</label>
-<input type="text" name="custname" pattern="[A-Za-z]{3,}" required><br><br>
-<label>Enter your address:</label>
-<input type="text" name="address" pattern="^[#.0-9a-zA-Z\s,-]+$"required><br><br>
-<label>Enter your city</label>
-<input type="text" name="city" pattern="[A-Za-z]{3,}" required><br><br>
-<label>Enter your pincode:</label>
-<input type="number" name="code" pattern="^[1-9]{1}[0-9]{2}\\s{0, 1}[0-9]{3}$" required><br><br>
-<label>Enter your noofdates:</label>
-<input type="Date" name="Expected" id="datefield" required><br><br>
-<h1>advance pay amount:</h1>
-<input type="number" name="advance" min="40000" required><br><br>
-<button type="submit">submit</button>
-</form>
+<div class="row">
+          <div class="col-50">
+            <h3>Billing Address</h3>
+            <label for="fname"><i class="fa fa-user"></i> Full Name</label>
+            <input type="text" id="custname" name="custname" placeholder="John M. Doe" pattern="[A-Za-z]{3,}" required>
+         
+            <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
+            <input type="text" id="adr" name="address" placeholder="542 W. 15th Street" pattern="^[#.0-9a-zA-Z\s,-]+$" required>
+            <label for="city"><i class="fa fa-institution"></i> City</label>
+            <input type="text" id="city" name="city" placeholder="New York" pattern="[A-Za-z]{3,}" required>
+
+            
+             
+           
+                <label for="zip">Zip</label>
+                <input type="text" id="zip" name="zip" placeholder="10001"pattern="^[1-9]{1}[0-9]{2}\\s{0, 1}[0-9]{3}$" required>
+           
+              
+                <label for="state">Date</label>
+                <input type="Date" id="datefield" name="Expected" placeholder="NY" required>
+            
+           
+                <label for="state">Advance pay amount</label>
+                <input type="number"  name="advance" placeholder="NY"  min="40000" required>
+            
+           
+             <input type="submit" value="submit">
+          </div>
+         
+    </form>
 </body>
 <script type="text/javascript">
 var today = new Date();

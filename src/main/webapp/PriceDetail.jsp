@@ -9,7 +9,7 @@
  body {
       margin: 0;
       font-family: Arial;
-
+ background: linear-gradient(yellow,white);
     }
 
     .topnav {
@@ -90,11 +90,31 @@
       float: right;
       display: block;
     }
+       .one
+    {
+    position:relative;
+    margin-left:250px;
+    }
+     .two
+    {
+    position:relative;
+    margin-left:950px;
+    margin-top:-350px;
+    }
+      .three
+    {
+    position:relative;
+    margin-left:550px;
+    }
+    h2
+    {
+    text-shadow: 2px 2px 2px red;
+    }
 </style>
 </head>
 <body>
 <div class="topnav" id="myTopnav">
-    <a href="#home" >Home</a>
+    <a href="Admin.jsp" >Home</a>
     <a href="#news">News</a>
      <a href="Login.jsp" style=float:right>Logout</a>
     <a href="ViewUser.jsp">UserHistory</a>
@@ -114,35 +134,44 @@
   </div>
   <br><br>
 <form action="addprice" method="post">
-<label>Enter your carid:</label>
+<div class="one">
+<h2>Add your price detail</h2>
+<label>Enter your carid:</label><br>
 <input type="text" name="carid"><br><br>
-<label>Enter your carname:</label>
+<label>Enter your carname:</label><br>
 <input type="text" name="carname"><br><br>
-<label>Enter your Exshowroom_price:</label>
+<label>Enter your Exshowroom_price:</label><br>
 <input type="text" name="showroom_price"><br>
-<label>Enter your Roadtax:</label>
+<label>Enter your Roadtax:</label><br>
 <input type="text" name="roadtax"><br><br>
-<label>Enter your insurance:</label>
+<label>Enter your insurance:</label><br>
 <input type="text" name="insurance"><br><br>
 <button type="submit">add price</button>
+</div>
 </form>
-<hr>
+
 <form action="updateprice" method="post">
-<label>Enter your carid:</label>
+<div class="two">
+<h2>Update your price detail</h2>
+<label>Enter your carid:</label><br>
 <input type="text" name="carid"><br><br>
-<label>Enter your Exshowroom_price:</label>
+<label>Enter your Exshowroom_price:</label><br>
 <input type="text" name="showroom_price"><br>
-<label>Enter your Roadtax:</label>
+<label>Enter your Roadtax:</label><br>
 <input type="text" name="roadtax"><br><br>
-<label>Enter your insurance:</label>
+<label>Enter your insurance:</label><br>
 <input type="text" name="insurance"><br><br>
 <button type="submit">update price</button>
+</div>
 </form>
-<hr>
+
 <form action="deleteprice" method="post">
-<label>Enter your Carid</label>
-<input type="text" name="delete">
+<div class="three">
+<h2>Delete your price detail</h2>
+<label>Enter your Carid</label><br>
+<input type="text" name="delete"><br><br>
 <button type="submit">submit</button>
+</div>
 </form>
 </body>
 </html>

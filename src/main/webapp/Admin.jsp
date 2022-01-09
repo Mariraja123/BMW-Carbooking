@@ -95,7 +95,7 @@
     <body>
     <div class="topnav" id="myTopnav">
     <a href="#home" class="active">Home</a>
-    <a href="#news">News</a>
+   
     <a href="Login.jsp" style=float:right>Logout</a>
     <a href="ViewUser.jsp">UserHistory</a>
     <a href="BookingDetail.jsp">Booking history</a>
@@ -109,9 +109,9 @@
        
       </div>
     </div>
-    <a href="#about">About</a>
+    
    
   </div>
-  <img src="https://cdn.jdpower.com/Models/640x480/2022-BMW-3Series-330e.jpg" style=width:100% height:70%>
+  <img src="https://wallpaperaccess.com/full/2805305.jpg" style=width:100% height:70%>
 </body>
 </html>

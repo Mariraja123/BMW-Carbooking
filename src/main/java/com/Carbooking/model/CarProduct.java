@@ -51,6 +51,14 @@ public class CarProduct {
 	}
 
 
+	public CarProduct(String car_name, String fuelType, String carType) {
+		super();
+		this.Car_name = car_name;
+		this.fuelType = fuelType;
+		this.CarType = carType;
+	}
+
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(CarModel, CarType, Car_name, Carid, fuelType, images, price);

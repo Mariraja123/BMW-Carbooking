@@ -9,6 +9,9 @@
  body {
       margin: 0;
       font-family: Arial;
+      background-image:url("https://wallpaperaccess.com/full/2805305.jpg");
+      background-repeat:no-repeat;
+      background-size:cover;
 
     }
 
@@ -90,17 +93,41 @@
       float: right;
       display: block;
     }
+    .one
+    {
+    position:relative;
+    margin-left:100px;
+    }
+     .two
+    {
+    position:relative;
+    margin-left:950px;
+    margin-top:-470px;
+    }
+      .three
+    {
+    position:relative;
+    margin-left:550px;
+    margin-top:-350px;
+    }
+    .back
+    {
+    margin-left:1250px;
+    background-color:red;
+    width:fit-content;
+    font-size:30px;
+    }
 </style>
 </head>
 <body>
 <div class="topnav" id="myTopnav">
-    <a href="#home" >Home</a>
-    <a href="#news">News</a>
+    <a href="Admin.jsp" >Home</a>
+   
      <a href="Login.jsp" style=float:right>Logout</a>
     <a href="ViewUser.jsp">UserHistory</a>
     <a href="BookingDetail.jsp">Booking history</a>
     <div class="dropdown">
-      <button class="dropbtn" >Dropdown
+      <button class="dropbtn" >CarDetails
         <i class="fa fa-caret-down"></i>
       </button>
       <div class="dropdown-content">
@@ -109,46 +136,58 @@
        
       </div>
     </div>
-    <a href="#about">About</a>
    
-  </div>
+ </div>
+ <br><br>
+ <div class="back">
+ <a href="Admin.jsp">Back</a>
+ </div>
   <br>
   
     <form action="addcar" method="post">
-      <label>Enter your carid:</label>
+    <div class="one">
+    <h2>Add a car</h2>
+      <label>Enter your carid:</label><br>
       <input type="text" name="carid"><br><br>
-      <label>Enter your Carname</label>
+      <label>Enter your Carname</label><br>
       <input type="text" name="carname"><br><br>
-      <label>Enter your fueltype</label>
+      <label>Enter your fueltype</label><br>
       <input type="text" name="fueltype"><br><br>
-      <label>Enter your cartype</label>
+      <label>Enter your cartype</label><br>
       <input type="text" name="cartype"><br><br>
-      <label>Enter your carmodel</label>
+      <label>Enter your carmodel</label><br>
       <input type="text" name="carmodel"><br><br>
-      <label>Enter your price</label>
+      <label>Enter your price</label><br>
       <input type="number" name="price"><br><br>
       <button type="submit">Add car</button>
+      </div>
     </form>
-    <hr>
+   
     <form action="updatecar" method="Post">
-    
-     <label>Enter your carid:</label>
+   
+    <div class="two">
+     <h2>Update car</h2>
+     <label>Enter your carid:</label><br>
       <input type="text" name="carid"><br><br>
-      <label>Enter your fueltype</label>
+      <label>Enter your fueltype</label><br>
       <input type="text" name="fueltype"><br><br>
-      <label>Enter your cartype</label>
+      <label>Enter your cartype</label><br>
       <input type="text" name="cartype"><br><br>
-      <label>Enter your carmodel</label>
+      <label>Enter your carmodel</label><br>
       <input type="text" name="carmodel"><br><br>
-      <label>Enter your price</label>
-      <input type="number" name="price">
+      <label>Enter your price</label><br>
+      <input type="number" name="price"><br><br>
       <button type="submit">update car</button>
+      </div>
     </form>
- <hr>
+
  <form action="deletecar" method="post">
- <label>Enter your carid:</label>
+ <div class="three">
+ <h3>Delete car</h3>
+ <label>Enter your carid:</label><br>
  <input type="text" name="carid"><br><br>
  <button type="submit">Delete car</button>
+ </div>
  </form>
 </body>
 </html>
