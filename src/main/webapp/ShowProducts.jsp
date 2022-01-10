@@ -10,10 +10,13 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Show products</title>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <style>
 
 img{
-width: 150px;
+width: 250px;
 padding:50px;
 }
 
@@ -115,7 +118,7 @@ padding:50px;
    <a href="AddCart.jsp">Cart</a>
      <a href="Login.jsp" style=float:right>Logout</a>
         <a href="Search.jsp">Search</a>
-    <a href="#about">About</a>
+    <a href="#" data-toggle="modal" data-target="#myModal">Contact</a>
     <a href="Userhistory.jsp">user</a>
     
        
@@ -175,8 +178,28 @@ List<CarProduct> listproduct=dao.showview();
         </table>
          
         </div>
+    </div><div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">BME contact</h4>
+        </div>
+        <div class="modal-body">
+        <p> To contact us, please send an email to contact.india@bmw.in or to reach our Customer Interaction Centre, dial toll free number 1800 102 2269 from Monday to Saturday 09:00 hours to 18:30 hours.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
     </div>
-   </div>
+  </div>
+  
+</div>
+    
 
 </body>
 </html>

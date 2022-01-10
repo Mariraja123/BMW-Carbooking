@@ -11,6 +11,13 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Show products</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <style>
 img{
 width: 350px;
@@ -19,7 +26,7 @@ padding:130px;
  body {
       margin: 0;
       font-family: Arial;
-      
+       background: linear-gradient(to right,spinggreen,rgb(253,253,53));
       background-size:cover;
       height:300px;
     
@@ -104,19 +111,20 @@ padding:130px;
       float: right;
       display: block;
     }
-   .one
-   {
-   position:absolute;
-   left:1200px;
-   width:80px;
-   font-size:30px;
-   background-color:red;
-   }
+  
     .car
     {
       position:absolute;
-      left:620px;
+      left:520px;
       top:420px;
+    }
+    .one
+    {
+    margin-left:1200px;
+    }
+    img
+    {
+    width:550px;
     }
 </style>
 </head>
@@ -153,7 +161,8 @@ Pricedetail price = dan.selectproduct(cars);
 
  <h2 class="CarProducts">Car Products</h2>
  <div class="one">
- <a href="ShowProducts.jsp">Back</a>
+ 
+ <a href="ShowProducts.jsp"><button type="button" class="btn btn-primary">Back</button> </a>
  </div>
         
         <div class="recently added list">

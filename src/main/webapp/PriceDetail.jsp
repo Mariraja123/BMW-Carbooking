@@ -9,7 +9,7 @@
  body {
       margin: 0;
       font-family: Arial;
- background: linear-gradient(yellow,white);
+ background: linear-gradient(gray,white);
     }
 
     .topnav {
