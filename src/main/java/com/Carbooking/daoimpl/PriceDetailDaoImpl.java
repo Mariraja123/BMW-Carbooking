@@ -76,7 +76,7 @@ public  class PriceDetailDaoImpl {
     {
    	 String search="Select onroad_price from price_detail where car_id=?";
    	 Connection Con;
-   	System.out.println(obj);
+  
    	 int onprice=0;
 		try {
 			
@@ -89,7 +89,7 @@ public  class PriceDetailDaoImpl {
 		    	 if(rs.next())
 		    	 {
 		             onprice=rs.getInt(1);
-		             System.out.println(onprice);
+		           
 		             
 		    		 
 //		    		 Carproduct pd=new  Carproduct(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getInt(6));

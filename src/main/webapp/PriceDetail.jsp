@@ -4,12 +4,13 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Add Price Detail</title>
 <style>
  body {
       margin: 0;
       font-family: Arial;
- background: linear-gradient(gray,white);
+background-color:#E7E9BB;
+
     }
 
     .topnav {
@@ -137,15 +138,15 @@
 <div class="one">
 <h2>Add your price detail</h2>
 <label>Enter your carid:</label><br>
-<input type="text" name="carid"><br><br>
+<input type="text" name="carid" required><br><br>
 <label>Enter your carname:</label><br>
-<input type="text" name="carname"><br><br>
+<input type="text" name="carname" required><br><br>
 <label>Enter your Exshowroom_price:</label><br>
-<input type="text" name="showroom_price"><br>
+<input type="text" name="showroom_price" min="1" required><br>
 <label>Enter your Roadtax:</label><br>
-<input type="text" name="roadtax"><br><br>
+<input type="text" name="roadtax" min="1" required><br><br>
 <label>Enter your insurance:</label><br>
-<input type="text" name="insurance"><br><br>
+<input type="text" name="insurance"  min="1" required><br><br>
 <button type="submit">add price</button>
 </div>
 </form>
@@ -154,13 +155,13 @@
 <div class="two">
 <h2>Update your price detail</h2>
 <label>Enter your carid:</label><br>
-<input type="text" name="carid"><br><br>
+<input type="text" name="carid" required><br><br>
 <label>Enter your Exshowroom_price:</label><br>
-<input type="text" name="showroom_price"><br>
+<input type="text" name="showroom_price"  min="1" required><br>
 <label>Enter your Roadtax:</label><br>
-<input type="text" name="roadtax"><br><br>
+<input type="text" name="roadtax"  min="1" required><br><br>
 <label>Enter your insurance:</label><br>
-<input type="text" name="insurance"><br><br>
+<input type="text" name="insurance" min="1" required><br><br>
 <button type="submit">update price</button>
 </div>
 </form>
@@ -169,7 +170,7 @@
 <div class="three">
 <h2>Delete your price detail</h2>
 <label>Enter your Carid</label><br>
-<input type="text" name="delete"><br><br>
+<input type="text" name="delete" required><br><br>
 <button type="submit">submit</button>
 </div>
 </form>

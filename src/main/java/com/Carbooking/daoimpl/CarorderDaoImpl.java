@@ -22,7 +22,7 @@ public class CarorderDaoImpl {
 	{
 		
 //		String update="update User_details set userwallet=(select userwallet from user_details where user_id=?)-? where user_id=?)";
-		String insert="insert into car_orders(Order_id,Car_id,Car_name,Expecteddate,address) values(?,?,?,?,?)";
+		String insert="insert into car_orders(Order_id,Car_id,Car_name,Expecteddate,address,userid) values(?,?,?,?,?,?)";
 		  Connection Con;
 		 
 		  
@@ -34,11 +34,11 @@ public class CarorderDaoImpl {
 			stmt.setString(2, obj.getCar_id());		
 			stmt.setString(3, obj.getCarname());
 		
-			
-//			stmt.setString(1, obj.getStatus());
+
 		stmt.setDate(4,new java.sql.Date(obj.getExpecteddate().getTime()));
 			
-			stmt.setString(5, obj.getAddress());		
+			stmt.setString(5, obj.getAddress());
+			stmt.setInt(6, obj.getUserid());
 			int i=stmt.executeUpdate();
 			
 		} catch (ClassNotFoundException e) {
@@ -61,7 +61,7 @@ public class CarorderDaoImpl {
 			
 			while(rs.next())
 			{
-			     CarOrder details=new CarOrder(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5));
+			     CarOrder details=new CarOrder(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getDate(4),rs.getString(5),rs.getString(6));
 			     viewbooking.add(details);
 			}
 		} catch (ClassNotFoundException e) {
@@ -112,4 +112,31 @@ public class CarorderDaoImpl {
 		}
 		return productsList;
 	}
+	public List<CarOrder> userhistory(CarOrder obj)  {
+		List<CarOrder> viewbooking=new ArrayList<CarOrder>();
+		String allbook="Select * from Car_orders where userid=?";
+		Connection Con;
+		try {
+			Con = Connectionutil.getDBconnection();
+			PreparedStatement stmt=Con.prepareStatement(allbook);
+			stmt.setInt(1, obj.getUserid());
+			ResultSet rs=stmt.executeQuery();
+			
+			while(rs.next())
+			{
+			     CarOrder details=new CarOrder(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getDate(4),rs.getString(5),rs.getString(6),rs.getInt(7));
+			     viewbooking.add(details);
+			}
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return viewbooking;
+	}
+	
+
 }

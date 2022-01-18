@@ -9,12 +9,16 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Search Car</title>
 <style >
 .one
 {
 position:relative;
 margin-left:400px;
+}
+body
+{
+background-color:#E7E9BB;
 }
 
 </style>
@@ -27,7 +31,7 @@ margin-left:400px;
       List<CarProduct> searchlist =(List<CarProduct>) session.getAttribute("carname");
      %>
       
-      <table border="1">
+      <table  border="1" style=" border-collapse: collapse";>
 <h1><b>Search By Car:</b></h1>
 <thead>
 <tr>
@@ -57,7 +61,7 @@ i++;
 
 <!-- <td><a href="confirmcar.jsp?Car_name=<%list.getCar_name();%>">book</a></td>--->
 
-<td> <a href="confirmcar.jsp">Book</a></td>
+<td> <a href="ShowProducts.jsp">Book</a></td>
 
 
 </tr>

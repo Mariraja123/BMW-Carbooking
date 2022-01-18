@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Show products</title>
+<title>Booking Detail</title>
 </head>
 <body>
 
@@ -35,7 +35,7 @@ allbook=dao.allbook();
                 for(CarOrder carProduct1: allbook){
                 	%>
                     <td>
-                        <table border=1>
+                        <table  style=" border-collapse: collapse";>
                             <tbody>
                                 <tr>
                                     
@@ -44,9 +44,10 @@ allbook=dao.allbook();
                                         <span>carid : <%=carProduct1.getCar_id()%>  </span><br>
                                         <span>carname : <%=carProduct1.getCarname()%> </span><br>
                                       
-                                        <span>date: <%=carProduct1.getStatus() %></span><br>
+                                        <span>status: <%=carProduct1.getStatus() %></span><br>
                                        
-                                       <span>status <%=carProduct1.getAddress() %></span>
+                                       <span>Date <%=carProduct1.getExpecteddate() %></span>
+                                      <span>Address <%=carProduct1.getAddress() %></span>
                                        
                                     </td>
                                 </tr>
@@ -55,7 +56,7 @@ allbook=dao.allbook();
                             
                     </td>
                        <% count ++;
-                       if(count==5){ %> 
+                       if(count==7){ %> 
                     	   </tr>
                     	   <tr>              
                      <%count=0; }}%>  

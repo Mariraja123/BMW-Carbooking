@@ -2,7 +2,9 @@ package com.Carbooking.daoimpl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+
 import java.sql.ResultSet;
+
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +27,7 @@ public class UserDetaildaoImpl {
 		stmt.setLong(4, obj.getPhoneno());
 
 		int i = stmt.executeUpdate();
-		System.out.println(i);
+		
 	}
 
 //	public  String validate(String email,String password)  {
@@ -68,7 +70,9 @@ public class UserDetaildaoImpl {
 		if(rs.next()) {
 			return new UserDetail(rs.getInt(5),rs.getString(1),rs.getString(2),rs.getString(3),rs.getLong(4),rs.getString(6),rs.getInt(7));
 		}
-		return null;
+		else {
+			return null;
+		}
 	}
 
 
@@ -118,7 +122,7 @@ public class UserDetaildaoImpl {
 			while(rs.next())
 			{
 				 wallet=rs.getInt(1);
-				 System.out.println(wallet);
+				
 			}
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -133,7 +137,8 @@ public class UserDetaildaoImpl {
 
 	public int updateWallet(long wallet,int userid) {
 		// TODO Auto-generated method stub
-		
+		long flag =  (wallet(userid) - wallet);
+		if(flag > 0) {
 		if(wallet(userid) > 0) {
 		String query="update user_details set userwallet =userwallet - ? where user_id = ?";
 		
@@ -152,8 +157,9 @@ public class UserDetaildaoImpl {
 			e.printStackTrace();
 		}
 		}
-		return -1;
 		
+		}
+		return -1;
 		
 	}
 	
@@ -201,13 +207,13 @@ public class UserDetaildaoImpl {
 		}
 	   public static void updatewallet(UserDetail obj)
 	   {
-			String log1 = "update user_details set userwallet=userwallet + ? where Email=?";
+			String log1 = "update user_details set userwallet=userwallet + ? where user_id=?";
 			Connection Con;
 			try {
 				Con = Connectionutil.getDBconnection();
 				PreparedStatement stmt = Con.prepareStatement(log1);
 				stmt.setLong(1, obj.getWallet());
-				stmt.setString(2, obj.getEmail());
+				stmt.setInt(2, obj.getUserId());
 				int i = stmt.executeUpdate();
 			
 			} catch (ClassNotFoundException e) {
@@ -217,6 +223,29 @@ public class UserDetaildaoImpl {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
 	   }
+	   
+	   //mobile exist:
+public  ResultSet getEmail(UserDetail obj) throws ClassNotFoundException, SQLException
+{
+	Connection Con = Connectionutil.getDBconnection();
+	String log="select * from user_details where email=?";
+	PreparedStatement pstmt=Con.prepareStatement(log);
+	pstmt.setString(1, obj.getEmail());
+	ResultSet rs=pstmt.executeQuery();
+	return rs;
+	
+	
+}
+public  ResultSet getphoneno(UserDetail obj) throws ClassNotFoundException, SQLException
+{
+	Connection Con = Connectionutil.getDBconnection();
+	String log="select * from user_details where phone=?";
+	PreparedStatement pstmt=Con.prepareStatement(log);
+	pstmt.setLong(1, obj.getPhoneno());
+	ResultSet rs1=pstmt.executeQuery();
+	return rs1;
+	
+	
+}
 	}

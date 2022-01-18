@@ -9,19 +9,53 @@ public class CarOrder {
 	private int order_id;
 	private String car_id;
 	private String Carname;
+	public CarOrder(int order_id, String car_id, String carname ,Date expecteddate, String status, String address,
+			int userid) {
+		super();
+		this.order_id = order_id;
+		this.car_id = car_id;
+		this.Carname = carname;
+		
+		this.Expecteddate = expecteddate;
+		this.status = status;
+		this.address = address;
+		this.userid = userid;
+	}
+
 	private String status;
 	private Date Expecteddate;
+	private String address;
+	private int userid;
+	public CarOrder(int userid) {
+		super();
+		this.userid = userid;
+	}
+
+
+
+	public int getUserid() {
+		return userid;
+	}
+
+
+
+	public void setUserid(int userid) {
+		this.userid = userid;
+	}
+
+
+
 	public CarOrder(int order_id, String car_id, String carname, String status, Date expecteddate, String address) {
 		super();
 		this.order_id = order_id;
 		this.car_id = car_id;
 		this.Carname = carname;
 		this.status = status;
-		Expecteddate = expecteddate;
+		this.Expecteddate = expecteddate;
 		this.address = address;
 	}
 
-	private String address;
+
 	
 	public CarOrder(int order_id, String car_id, String carname, Date expecteddate) {
 		super();
@@ -93,14 +127,33 @@ public class CarOrder {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public CarOrder(int orderid, String carid, String carnames, Date dates, String address2) {
+	public CarOrder(int orderid, String carid, String carnames, Date dates, String address2,int userid) {
 		// TODO Auto-generated constructor stub
 		this.order_id=orderid;
 		this.car_id=carid;
 		this.Carname=carnames;
 		this.Expecteddate=dates;
 		this.address=address2;
+		this.userid=userid;
 	}
-	
+
+
+
+	public CarOrder(int order, String carn, String carname, java.sql.Date dates1, String status1,String Addres) {
+		// TODO Auto-generated constructor stub
+		this.order_id=order;
+		this.car_id=carn;
+		this.Carname=carname;
+		this.Expecteddate=dates1;
+		this.status=status1;
+		this.address=Addres;
+	}
+
+
+
+
+
+
+
 
 }

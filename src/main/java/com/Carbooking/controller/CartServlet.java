@@ -31,8 +31,13 @@ public class CartServlet extends HttpServlet {
 		OrderDetailDaoImpl orderdao=new OrderDetailDaoImpl();
 	
 		try {
-			orderdao.insert(obj);
-			resp.sendRedirect("confirmcar.jsp");
+			int res = orderdao.insert(obj);
+			if(res > 0) {
+				resp.sendRedirect("confirmcar.jsp");
+			}else {
+				resp.sendRedirect("ShowProducts.jsp");
+			}
+			
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -16,18 +16,25 @@
 <style>
 
 img{
-width: 250px;
-padding:50px;
+    width: 350px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+
+}
+img:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
 }
 
  body {
       margin: 0;
-      font-family: Arial;
-      
-      background-size:cover;
-      height:300px;
-    
+      font-family: sans-serif;
+     background-color:#F5F5F5;
 
+    }
+    .carproduct
+    {
+    padding:50px;
     }
 
     .topnav {
@@ -108,18 +115,43 @@ padding:50px;
       float: right;
       display: block;
     }
+    span
+    {
+    margin-left:-15px;
+    font-family: sans-serif;}
+   
+    .car
+    {
+    padding:20px;}
+   
+    #carproduct
+    {
+    padding:30px;
+    margin: 30px;
+    }
+    span
+{
+font-size:20px;
+ 
+  color: navy;}
 </style>
 </head>
 
 <body>
-<% UserDetail user=(UserDetail)session.getAttribute("currentUser"); %>
+<% UserDetail user=(UserDetail)session.getAttribute("currentUser"); 
+session.setAttribute("wallet", user.getWallet());%>
 <div class="topnav" id="myTopnav">
-    <a href="#home" class="active">ShowProduct</a>
+    <a href="#home" >ShowProduct</a>
    <a href="AddCart.jsp">Cart</a>
      <a href="Login.jsp" style=float:right>Logout</a>
         <a href="Search.jsp">Search</a>
     <a href="#" data-toggle="modal" data-target="#myModal">Contact</a>
     <a href="Userhistory.jsp">user</a>
+     <a href="updatewallet.jsp">Recharge Wallet</a>
+     <a href="UserBooking.jsp"> UserHistory</a>
+       <a style=float:right><input type="submit" value="search" style="color:black;"></a>
+     <a style=float:right><input type="text"></a>
+    
     
        
       </div>
@@ -133,11 +165,8 @@ List<CarProduct> listproduct=dao.showview();
 
 %>
 
-</form>
-
- <h2 class="CarProducts">Car Products</h2>
-        
-        <div class="recently added list">
+</form>        
+        <div class="carproduct">
         <table>
             <tbody>
                 <tr>
@@ -145,20 +174,23 @@ List<CarProduct> listproduct=dao.showview();
                 for(CarProduct carProduct: listproduct){
                 	%>
                     <td>
-                        <table id="carproduct">
+                        <table id="carproduct" >
                             <tbody>
                                 <tr>
                                 
-                                    <td><img src="<%=carProduct.getCar_name()%>.jpg" alt="img"></td>    
+                                    <td><img src="<%=carProduct.getCar_name()%>.jpg" alt="img"></td>
+                                    </tr>
+                                    <tr>
                                     <td class="car">
-                                        <span>carid : <%=carProduct.getCar_id()%> </span><br>
-                                        <span>carname : <%=carProduct.getCar_name()%>  </span><br>
+                                    
+                                        <span>carname &nbsp;: <%=carProduct.getCar_name()%>  </span><br>
                                         <span>carmodel : <%=carProduct.getCarModel()%> </span><br>
-                                        <span>cartype : <%=carProduct.getCarType() %> </span><br>
-                                        <span>fueltype: <%=carProduct.getFuelType() %></span><br>
+                                        <span>cartype &nbsp;&nbsp; : <%=carProduct.getCarType() %> </span><br>
+                                        <span>fueltype &nbsp;&nbsp;: <%=carProduct.getFuelType() %></span><br>
+                                      
                                     
                                       
-                                       <a href="SelectCar.jsp?car_id=<%=carProduct.getCar_id() %>"><button>view</button></a>
+                                      <span style="margin-left:70px;"> <a href="SelectCar.jsp?car_id=<%=carProduct.getCar_id() %>"><button>view</button></a></span>
                                       
                                         
                                     </td>
@@ -185,7 +217,7 @@ List<CarProduct> listproduct=dao.showview();
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">BME contact</h4>
+          <h4 class="modal-title">BMw contact</h4>
         </div>
         <div class="modal-body">
         <p> To contact us, please send an email to contact.india@bmw.in or to reach our Customer Interaction Centre, dial toll free number 1800 102 2269 from Monday to Saturday 09:00 hours to 18:30 hours.</p>

@@ -8,25 +8,27 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Show products</title>
-<style>
-img{
-width: 350px;
-padding:130px;
-}
+<title>Confirm Car</title>
+
+
 <style>
 
-img{
-width: 250px;
-padding:70px;
+   img{
+width: 500px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+
+}
+img:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
 }
 
 
  body {
       margin: 0;
       font-family: Arial;
-      
-      background-size:cover;
+  background-color:#E7E9BB;     
       height:300px;
     
 
@@ -110,14 +112,36 @@ padding:70px;
       float: right;
       display: block;
     }
-      .one
-   {
-   position:absolute;
-   left:1200px;
-   width:80px;
-   font-size:30px;
-   background-color:red;
-   }
+  .one
+    {
+    margin-left:1200px;
+    margin-top:100px;
+    }
+    #carproduct
+    {
+    margin-left:100px;
+    }
+    span
+    {
+     margin-left:80px;
+     font-size:20px;
+ font-weight: bold;
+  color: navy;
+    }
+    button
+    {
+    margin-left:100px;
+    
+background-color:GREY;
+border-radius:10px;
+width:40%;
+
+color:white;
+font-size:18px;
+left:20px;
+
+    }
+  
 </style>
 
 </head>
@@ -129,6 +153,7 @@ padding:70px;
         <a href="Search.jsp">Search</a>
     <a href="#about">About</a>
     <a href="Userhistory.jsp">user</a>
+         <a href="updatewallet.jsp">Recharge Wallet</a>
     
        
       </div>
@@ -137,7 +162,7 @@ padding:70px;
    
    
  <div class="one">
- <a href="ShowProducts.jsp">Back</a>
+ <a href="ShowProducts.jsp"><button type="button">Back</button> </a>
  </div>
  <form  method="post">
 <% CarProductDaoImpl dao=new CarProductDaoImpl();
@@ -146,9 +171,6 @@ String carid =session.getAttribute("car_id").toString();
 CarProduct car = new CarProduct(carid);
 CarProduct carProduct = dao.selectproduct(car);
 %>
-
-
- <h2 class="CarProducts">Car Products</h2>
         
         <div class="recently added list">
         <table>
@@ -162,17 +184,17 @@ CarProduct carProduct = dao.selectproduct(car);
                                     <td><img src="<%=carProduct.getCar_name() %>.jpg" alt="maari"></td>    
                                     <td class="car">
                                     
-                                        <span>carid : <%=carProduct.getCar_id()%> </span><br>
-                                        <span>carname : <%=carProduct.getCar_name()%>  </span><br>
-                                        <span>carmodel : <%=carProduct.getCarModel()%> </span><br>
-                                        <span>cartype : Rs.<%=carProduct.getCarType() %> </span><br>
-                                        <span>fueltype: <%=carProduct.getFuelType() %></span><br>
-                                          <span>price:<%= session.getAttribute("price") %>
+                                        <span>carid : <%=carProduct.getCar_id()%> </span><br><br>
+                                        <span>carname : <%=carProduct.getCar_name()%>  </span><br><br>
+                                        <span>carmodel : <%=carProduct.getCarModel()%> </span><br><br>
+                                        <span>cartype : Rs.<%=carProduct.getCarType() %> </span><br><br>
+                                        <span>fueltype: <%=carProduct.getFuelType() %></span><br><br>
+                                          <span>price:<%= session.getAttribute("price") %></span><br><br>
                                        <%session.setAttribute("carname", carProduct.getCar_name()); %>
-                                      <button> <a href="CustomerDetail.jsp">confirm booking </a></button>
-                                       <button> <a href="ShowProducts.jsp">Cancel booking</a></button>
+                                      <button > <a href="CustomerDetail.jsp">confirm booking </a></button><br><br>
+                                       <button> <a href="ShowProducts.jsp">Cancel booking</a></button><br><br>
                                           
-                                         </form></span>
+                                         </form>
                                         
                                     </td>
                                 </tr>

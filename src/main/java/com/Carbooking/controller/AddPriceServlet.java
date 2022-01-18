@@ -29,6 +29,7 @@ public class AddPriceServlet extends HttpServlet {
 		int onroad=showroom+road+insurance;
 		Pricedetail prc=new Pricedetail(carid,carname,showroom,road,insurance,onroad);
 		PriceDetailDaoImpl prcdao=new PriceDetailDaoImpl();
-		prcdao.insert(prc);	}
+		prcdao.insert(prc);	
+		response.sendRedirect("Admin.jsp");}
 
 }

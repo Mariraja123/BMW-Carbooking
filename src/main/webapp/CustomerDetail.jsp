@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Customer Detail</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
@@ -211,6 +211,7 @@ hr {
 .spin
 {
 margin-left:1200px;
+
 }
     
 </style>
@@ -223,10 +224,11 @@ margin-left:1200px;
         <a href="Search.jsp">Search</a>
     <a href="#about">About</a>
     <a href="Userhistory.jsp">user</a>
+       <a href="updatewallet.jsp">Recharge Wallet</a>
     
        
-      </div>
-<h1>Customer Details:</h1>
+      </div><br><br><br>
+
 <form action="custdetails" method="post">
 <div class="spin">
 <div class="spinner-border text-muted"></div>

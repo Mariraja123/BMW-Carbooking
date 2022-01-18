@@ -13,8 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 
-import com.Carbooking.dao.UserDetailDao;
+
 import com.Carbooking.daoimpl.UserDetaildaoImpl;
+import com.Carbooking.exception.InvalidUserException;
 import com.Carbooking.model.UserDetail;
 @WebServlet("/loginval")
 public class LoginServlet extends HttpServlet {
@@ -27,9 +28,34 @@ public class LoginServlet extends HttpServlet {
 		//UserDetail user=new UserDetail(username, password);
 		UserDetaildaoImpl userDao=new UserDetaildaoImpl();
 		String rs;
-		try {
+		
 
-			UserDetail currentUser=userDao.loginval(username, password);
+			UserDetail currentUser = null;
+			
+				
+			try {
+				try {
+					currentUser = userDao.loginval(username, password);
+					if(currentUser==null) {
+						try {
+							throw new InvalidUserException();
+						}catch(InvalidUserException e) {
+							session.setAttribute("invalidUser", "invalid");
+							String validate=e.getMessage();
+							resp.sendRedirect(validate);
+							
+						}
+					
+				}
+					
+				} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			
 			session.setAttribute("username", currentUser.getFirst_name());
 			
 				if(currentUser!=null) {
@@ -45,11 +71,13 @@ public class LoginServlet extends HttpServlet {
 				}
 				
 		}
+				
 			}
-		 catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+			catch(Exception e) {
+				
+				e.printStackTrace();
+			}
+		 
 		
 		
 

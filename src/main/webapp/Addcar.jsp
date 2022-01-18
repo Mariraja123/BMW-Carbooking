@@ -4,14 +4,13 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Add Car</title>
 <style>
  body {
       margin: 0;
       font-family: Arial;
-      background-image:url("https://wallpaperaccess.com/full/2805305.jpg");
-      background-repeat:no-repeat;
-      background-size:cover;
+   background-color:#E7E9BB;
+   
 
     }
 
@@ -148,17 +147,17 @@
     <div class="one">
     <h2>Add a car</h2>
       <label>Enter your carid:</label><br>
-      <input type="text" name="carid"><br><br>
+      <input type="text" name="carid" required><br><br>
       <label>Enter your Carname</label><br>
-      <input type="text" name="carname"><br><br>
+      <input type="text" name="carname" required><br><br>
       <label>Enter your fueltype</label><br>
-      <input type="text" name="fueltype"><br><br>
+      <input type="text" name="fueltype" required><br><br>
       <label>Enter your cartype</label><br>
-      <input type="text" name="cartype"><br><br>
+      <input type="text" name="cartype" required><br><br>
       <label>Enter your carmodel</label><br>
-      <input type="text" name="carmodel"><br><br>
+      <input type="text" name="carmodel" required><br><br>
       <label>Enter your price</label><br>
-      <input type="number" name="price"><br><br>
+      <input type="number" name="price" min="1" required ><br><br>
       <button type="submit">Add car</button>
       </div>
     </form>
@@ -168,15 +167,15 @@
     <div class="two">
      <h2>Update car</h2>
      <label>Enter your carid:</label><br>
-      <input type="text" name="carid"><br><br>
+      <input type="text" name="carid" required><br><br>
       <label>Enter your fueltype</label><br>
-      <input type="text" name="fueltype"><br><br>
+      <input type="text" name="fueltype" required><br><br>
       <label>Enter your cartype</label><br>
-      <input type="text" name="cartype"><br><br>
+      <input type="text" name="cartype" required><br><br>
       <label>Enter your carmodel</label><br>
-      <input type="text" name="carmodel"><br><br>
+      <input type="text" name="carmodel" required><br><br>
       <label>Enter your price</label><br>
-      <input type="number" name="price"><br><br>
+      <input type="number" name="price" min="1" required><br><br>
       <button type="submit">update car</button>
       </div>
     </form>
@@ -185,7 +184,7 @@
  <div class="three">
  <h3>Delete car</h3>
  <label>Enter your carid:</label><br>
- <input type="text" name="carid"><br><br>
+ <input type="text" name="carid" required><br><br>
  <button type="submit">Delete car</button>
  </div>
  </form>

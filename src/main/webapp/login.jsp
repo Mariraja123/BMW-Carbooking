@@ -15,6 +15,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins',sans-serif;
+  }
 .para
 {
 margin-left:700px;
@@ -29,9 +36,63 @@ width:50%;
 margin-left:530px;
 margin-top:-250px;
 }
-.nav-item
+input[type=text]
 {
-  float:right;
+width:100%;
+border:2px solid black;
+}
+input[type=password]
+{
+width:100%;
+border:2px solid black;
+}
+input:focus{
+    outline: none;
+    box-shadow: 0px 0px 5px #61C5FA;
+    border-color: #5AB0DB;
+}
+
+input:hover {
+    border: 1px solid #999;
+    border-radius: 5px;
+}
+button
+{
+width:25%;
+margin-left:100px;
+background-color:hsl(240, 75%, 50%);
+}
+.modal
+{
+width:400px;
+height:600px;
+margin-left:550px;
+
+}
+.modal-footer
+{
+background:white;
+  background-color:#E7E9BB;
+}
+
+.modal-header
+{
+
+  background-color:#E7E9BB;
+}
+.modal-body
+{
+
+  background-color:#E7E9BB;
+}
+.login{
+background-color:GREY;
+border-radius:10px;
+width:40%;
+height:30px;
+color:white;
+font-size:18px;https://github.com/Mariraja123/BMW-Carbooking.git
+left:20px;
 }
 
 </style>
@@ -39,10 +100,20 @@ margin-top:-250px;
 
 <body>
 
+
+<%String invalid=request.getParameter("invalid");
+if(invalid!=null){
+	%>
+
+<h2><%=invalid%></h2>%>
+<%session.removeAttribute("invalid"); %>
+<%} %>
+
+
    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <!-- Brand/logo -->
   <a class="navbar-brand" href="#">
-    <img src="bmw2.jpg" alt="logo" style="width:40px;">
+    <img src="bmw-logo.svg" alt="logo" style="width:70px;" >
   </a>
   
   <!-- Links -->
@@ -75,14 +146,19 @@ margin-top:-250px;
             <label>Enter your Password:</label><br>
             <input type="password" placeholder="Password" name="upass" pattern="(?=.*[0-9])(?=.*[@#$%*!^()_+])(?=.*[a-z])(?=.*[A-Z]).{8,}"required><br><br>
             <button class="login" type="submit">Log In</button><br>
-            <a href="Forgetpassword.jsp">Forgot Password ?</a>
-            <hr>
-            <a href="Index.jsp">Create New Account</a>
+            <a href="Forgetpassword.jsp" style="color:red;" >Forgot Password ?</a>
+           
+            <a href="Index.jsp" style="float:right;color:red">Create New Account</a>
           </form>
         </div>
-        
+        <%
+   if(session.getAttribute("invalidUser") != null){%>
+	   <h1 style="color:red;background-color:white;font-size:25px;float:right;">Invalid Credentials</h1>
+	   
+   <%session.removeAttribute("invalidUser"); }
+   %>
         <!-- Modal footer -->
-        <div class="modal-footer">
+        <div class="modal-footer" >
           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
         </div>
         
@@ -95,29 +171,29 @@ margin-top:-250px;
 
   <!-- Indicators/dots -->
   <div class="carousel-indicators">
-    <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
-    <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
-    <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active" ></button>
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="1" ></button>
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="2" ></button>
   </div>
   
   <!-- The slideshow/carousel -->
   <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="BMW X1 Series.jpg" alt="Los Angeles" class="d-block" style="width:70%" >
+    <div class="carousel-item active"  data-interval="1000">
+      <img src="slidebmw.jpg" alt="Los Angeles" class="d-block" style="width:100%" >
       <div class="carousel-caption">
         <h3>BMW X1 Series</h3>
        
       </div>
     </div>
-    <div class="carousel-item">
-      <img src="bmw x5 series.jpg" alt="Chicago" class="d-block" style="width:70%">
+    <div class="carousel-item" data-interval="1500">
+      <img src="slidebmw1.jpg" alt="Chicago" class="d-block" style="width:100%">
       <div class="carousel-caption">
         <h3>BMW x8 series</h3>
        
       </div> 
     </div>
-    <div class="carousel-item">
-      <img src="BMW X1 Series.jpg" alt="New York" class="d-block" style="width:70%">
+    <div class="carousel-item"data-interval="2000">
+      <img src="slidebmw2.jpg" alt="New York" class="d-block" style="width:100%">
       <div class="carousel-caption">
         <h3>BMW x12 series</h3>
        
@@ -135,7 +211,7 @@ margin-top:-250px;
 </div>
  <h1>About us</h1>
  <div class="imr">
- <img src="bmw.jpg" style=width:800px;>
+ <img src="bmwview1.jpg" style=width:800px;>
  </div>
  <div class="para">
  <h3>The BMW Group company profile.</h3>
@@ -159,7 +235,12 @@ understanding sustainable living in urban environments
 careers information</p>
 </div>
 <div class="imr2">
-<img src="BMW X1 Series.jpg" style=width:800px;>
+<img src="bmwview.jpg" style=width:800px;>
 </div>
+
+
+
+  
+
 </body>
 </html>

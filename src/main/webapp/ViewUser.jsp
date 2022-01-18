@@ -7,11 +7,12 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>View User</title>
 <style>
 body {
       margin: 0;
       font-family: Arial;
+        background-color:#E7E9BB;
 
     }
 

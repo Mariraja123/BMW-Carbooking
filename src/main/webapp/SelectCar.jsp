@@ -10,14 +10,8 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Show products</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<title>Select Car</title>
 
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <style>
 img{
 width: 350px;
@@ -26,9 +20,10 @@ padding:130px;
  body {
       margin: 0;
       font-family: Arial;
-       background: linear-gradient(to right,spinggreen,rgb(253,253,53));
+  background-color:#E7E9BB;
       background-size:cover;
       height:300px;
+      
     
 
     }
@@ -115,17 +110,44 @@ padding:130px;
     .car
     {
       position:absolute;
-      left:520px;
+      left:750px;
       top:420px;
     }
     .one
     {
     margin-left:1200px;
     }
-    img
-    {
-    width:550px;
-    }
+   img{
+width: 500px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+
+}
+img:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+.cars
+{
+position:absolute;
+margin-left:180px;
+margin-top:100px;
+}
+.style  {
+    background-color: red;
+}
+
+.style:focus {     
+    background-color:yellow;    
+}
+span
+{
+font-size:20px;
+ font-weight: bold;
+  color: navy;}
+  .list
+  {
+  padding:50px;}
 </style>
 </head>
 <body>
@@ -134,8 +156,10 @@ padding:130px;
    <a href="AddCart.jsp">Cart</a>
      <a href="Login.jsp" style=float:right>Logout</a>
         <a href="Search.jsp">Search</a>
-    <a href="#about">About</a>
+    <a href="#about">Contact</a>
     <a href="Userhistory.jsp">user</a>
+     <a href="updatewallet.jsp">Recharge Wallet</a>
+   
     
        
       </div>
@@ -162,10 +186,10 @@ Pricedetail price = dan.selectproduct(cars);
  <h2 class="CarProducts">Car Products</h2>
  <div class="one">
  
- <a href="ShowProducts.jsp"><button type="button" class="btn btn-primary">Back</button> </a>
+ <a href="ShowProducts.jsp"><button type="button">Back</button> </a>
  </div>
         
-        <div class="recently added list">
+        <div class="list">
         <table>
             <tbody>
                 <tr>
@@ -184,7 +208,7 @@ Pricedetail price = dan.selectproduct(cars);
                                         <span>fueltype: <%=carProduct.getFuelType() %></span><br>
                                          
                                           <%session.setAttribute("car_id", carProduct.getCar_id()); %>
-                                         <a href="confirmcar.jsp?car_id=<%=carProduct.getCar_id() %>">  <br><button type="submit" style=margin-left:300px;>Add to cart</button></a>
+                                         <a href="confirmcar.jsp?car_id=<%=carProduct.getCar_id() %>">  <br><button type="submit" style=margin-left:300px; class="style" >Add to cart</button></a>
                                           
                                          </form></span>
                                         
@@ -208,7 +232,7 @@ Pricedetail price = dan.selectproduct(cars);
                 <tr>
                
                     <td>
-                        <table id="carproduct">
+                        <table id="carsecond">
                             <tbody>
                                 <tr>
                                     

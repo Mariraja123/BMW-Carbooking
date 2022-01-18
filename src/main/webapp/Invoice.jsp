@@ -8,13 +8,56 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Invoice bill</title>
 <style>
+body
+{
+background-color:#E7E9BB;
+}
 .car
 {
 position:absolute;
-margin-top:150px;
+margin-top:30px;
 margin-left:500px;
+}
+span
+{
+font-size:30px;
+color: navy;
+}
+img
+{
+float:right;
+margin-top:30px;
+}
+.F{
+	color: #212e59;
+	font-size:3em;
+	position: absolute;
+	font-family: 'Oswald',sans-serif;
+	margin-left:20px;
+}
+.address{
+	font-size: 13px;
+	font-family: 'oswald', sans-serif;
+	margin-left:20px;
+}
+.row
+{
+font-size:20px;
+margin-top:40px;
+margin-left:140px;
+}
+.images
+{
+
+margin-right:350px;"
+}
+button
+{
+background-color:skyblue;
+margin-top:200px;
+margin-left:550px;
 }
 </style>
 
@@ -28,17 +71,20 @@ UserDetail user=(UserDetail)session.getAttribute("currentUser");
 int userid=user.getUserId();
 Invoice ord=new Invoice(userid);
 
-
+String  advance=request.getParameter("advance");
 
 List<Invoice> listproduct=dao.view(ord);
 
 
 %>
+ <h1 CLASS="F">RECEIPT</h1>
+  <img src="bmw-logo.svg" alt="logo" style="width:70px;" >
+      <br><br><br><br><br>
+        <p class="address"><b>East Repair Inc.</b><br>1912 Harvest Lane<br>CHENNAI</p><br><br>
 
 </form>
-
         
-        
+         
         <table>
             <tbody>
                 <tr>
@@ -46,18 +92,19 @@ List<Invoice> listproduct=dao.view(ord);
                for(Invoice order:listproduct){
                 	%>
                     <td>
-                        <table id="carproduct" border=1 >
+                        <table id="carproduct" >
                             <tbody>
                                 <tr>
                                    
                                     <td class="car">
-                                         <h1>invoiceid: <%= order.getInvoice_id() %></h1>
-                                        <h1>user name : <%=session.getAttribute("username")%>  </h1><br>
-                                        <h1>price : <%=order.getPrice()%> </h1><br>
-                                        <h1>Carname : <%=order.getCar_name() %> </h1><br>
+                                        <span>invoiceid: <%= order.getInvoice_id() %></span><br>
+                                       <span> user name : <%=session.getAttribute("username")%></span> <br>
+                                       <span>price : <%=order.getPrice()%> </span><br>
+                                    <span> Carname : <%=order.getCar_name() %> </span><br>
+                                       
                                         
                                       
-                                       <a href="ShowProducts.jsp">click me</a>
+                                     
                                       
                                         
                                     </td>
@@ -77,8 +124,19 @@ List<Invoice> listproduct=dao.view(ord);
                 </tr>
             </tbody>
         </table>
-        
-    
+      
+        <button><a href="ShowProducts.jsp">click me</a></button>
+           <h1 class="images"><img src="http://montco.happeningmag.com/wp-content/uploads/2014/11/thankyou.png" alt="thanks" style="width:300px;" /></h1>
+  		<div class="row" >
+  	    	
+  		      <marquee> <span><strong>Phone:</strong>+91-124-111111</span>----
+  	    	
+  		        <span>  <strong>Email:</strong> india@bmw.com</span>----
+  	    	
+  		       <span> <strong>Website:</strong> http://webivorous.com</span>
+  	    </marquee>
+  		</div>
+
 
 </body>
 </html>

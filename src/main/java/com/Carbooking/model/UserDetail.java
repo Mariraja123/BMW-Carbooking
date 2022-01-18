@@ -154,10 +154,11 @@ public class UserDetail {
 		// TODO Auto-generated constructor stub
 	}
 
-	public UserDetail(Long wallet, String Email) {
+	public UserDetail(Long wallet, String Email,int userid) {
 		// TODO Auto-generated constructor stub
 		this.wallet=wallet;
 		this.Email=Email;
+		this.userId=userid;
 	}
 
 //	public UserDetail(String string, String string2, String string3, long parseLong, int int1, String string4) {

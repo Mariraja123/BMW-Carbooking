@@ -7,11 +7,16 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>User History</title>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 body {
       margin: 0;
       font-family: Arial;
+     background-color:#E7E9BB;
 
     }
 
@@ -93,27 +98,29 @@ body {
       float: right;
       display: block;
     }
+    .red
+    {
+    margin-left:600px;
+    margin-top:50px;
+    }
+ 
  </style>
 </head>
 <body>
-    <div class="topnav" id="myTopnav">
+ <div class="topnav" id="myTopnav">
+    <a href="ShowProducts.jsp" >ShowProduct</a>
+   <a href="AddCart.jsp">Cart</a>
+     <a href="Login.jsp" style=float:right>Logout</a>
+        <a href="Search.jsp">Search</a>
+    <a href="#about" data-toggle="modal" data-target="#myModal">Contact</a>
+    <a href="Userhistory.jsp" >user</a>
     
-    <a href="Admin.jsp">Home</a>
-    <a href="Login.jsp" style=float:right>Logout</a>
-    <a href="ViewUser.jsp" class="active">UserHistory</a>
-    <div class="dropdown">
-      <button class="dropbtn">Dropdown
-        <i class="fa fa-caret-down"></i>
-      </button>
-      <div class="dropdown-content">
-        <a href="Addcar.jsp">Add car</a>
-        <a href="PriceDetail.jsp">PriceDetail </a>
        
       </div>
-    </div>
-
+   
    
   </div>
+ 
   <% 
    UserDetail user=(UserDetail)session.getAttribute("currentUser"); 
    int userid=user.getUserId();
@@ -126,8 +133,8 @@ body {
           <h2 class="Userdetail">User Detail</h2>
           
         
-        <div class="recently added list">
-        <table border=1 >
+        <div class="red">
+        <table>
             <tbody>
                 <tr>
                 <%int count=0;
@@ -139,14 +146,14 @@ body {
                                 <tr>
                                      
                                     <td class="viewall">
-                                        <span>Name : <%=userdetail.getFirst_name()%> </span><br>
-                                        <span>password : <%=userdetail.getCpassword()%>  </span><br>
-                                        <span>Email : <%=userdetail.getEmail()%> </span><br>
+                                        <h3><span class="glyphicon glyphicon-user">&nbsp;Name : <%=userdetail.getFirst_name()%> </span></h3>
+                                       
+                                       <h3> <span class="glyphicon glyphicon-envelope">&nbsp;Email : <%=userdetail.getEmail()%> </span></h3>
                                       
-                                        <span>phone number: <%=userdetail.getPhoneno()%></span><br>
-                                         <span>userid:<%= userdetail.getUserId() %></span><br>
-                                          <span>usertype:<%= userdetail.getUsertype() %></span><br>
-                                           <span>wallet:<%= userdetail.getWallet()%></span>
+                                       <h3> <span class="glyphicon glyphicon-phone">&nbsp;phonenumber: <%=userdetail.getPhoneno()%></span></h3>
+                                        <h3> <span class="glyphicon glyphicon-user">&nbsp;userid:<%= userdetail.getUserId() %></span></h3>
+                                    
+                                           <h3><span> <i class="fa fa-rupee"></i>&nbsp;wallet:<%= userdetail.getWallet()%></h3></span>
                                            
                                             
                                        
@@ -169,6 +176,26 @@ body {
          
         </div>
     </div>
-   </div>
+       </div><div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">BME contact</h4>
+        </div>
+        <div class="modal-body">
+        <p> To contact us, please send an email to contact.india@bmw.in or to reach our Customer Interaction Centre, dial toll free number 1800 102 2269 from Monday to Saturday 09:00 hours to 18:30 hours.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
 </body>
 </html>

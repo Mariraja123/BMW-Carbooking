@@ -15,9 +15,11 @@ import com.connection.*;
 
 public class OrderDetailDaoImpl {
 
-	public void insert(OrderDetail obj) throws ClassNotFoundException, SQLException
+	public int insert(OrderDetail obj) throws ClassNotFoundException, SQLException
     {
-		
+		boolean flag = cartexist(obj.getUserId(), obj.getCarid());
+		if(!flag) {
+			
 	String insert="insert into order_details(user_id,car_id,price)values(?,?,?)";
 	Connection Con=Connectionutil.getDBconnection();
 	PreparedStatement stmt=Con.prepareStatement(insert);
@@ -26,7 +28,11 @@ public class OrderDetailDaoImpl {
 	stmt.setInt(3, obj.getPrice());
 	
 	int i=stmt.executeUpdate();
-	
+	return i;
+		}else {
+			return -1;
+			
+		}
     }
 	public  int Findorder() 
     {
@@ -113,6 +119,20 @@ public class OrderDetailDaoImpl {
 		}
 		return productsList;
 	}
-	
+//boolean cart:
+    
+    public boolean cartexist(int userid,String carid) throws ClassNotFoundException, SQLException {
+    	Connection con = Connectionutil.getDBconnection();
+    	String query = "select * from order_details where user_id in ? and car_id in ?";
+    	
+    	PreparedStatement pstPreparedStatement = con.prepareStatement(query);
+    	pstPreparedStatement.setInt(1, userid);
+    	pstPreparedStatement.setString(2,carid);
+    	ResultSet rs = pstPreparedStatement.executeQuery();
+    	if(rs.next()) {
+    		return true;
+    	}
+    	return false;
+    }
     
 }

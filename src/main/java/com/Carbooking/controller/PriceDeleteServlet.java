@@ -30,6 +30,7 @@ public class PriceDeleteServlet extends HttpServlet {
 		PriceDetailDaoImpl delet=new PriceDetailDaoImpl();
 		try {
 			delet.delete(del);
+			response.sendRedirect("Admin.jsp");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

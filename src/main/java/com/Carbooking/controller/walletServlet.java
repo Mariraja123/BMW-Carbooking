@@ -6,6 +6,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 import com.Carbooking.daoimpl.UserDetaildaoImpl;
 import com.Carbooking.model.UserDetail;
@@ -16,11 +18,15 @@ public class walletServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 //		doGet(request, response);
+		HttpSession session=request.getSession();
+		 UserDetail user=(UserDetail)session.getAttribute("currentUser");
+	     int userid=user.getUserId();
 		Long wallet=Long.parseLong(request.getParameter("amount"));
-		String email=request.getParameter("email");
-		UserDetail use=new UserDetail(wallet,email);
+		
+		UserDetail use=new UserDetail(wallet,userid);
 		UserDetaildaoImpl dao=new UserDetaildaoImpl();
 		dao.updatewallet(use);
+		response.sendRedirect("ShowProducts.jsp");
 	}
 
 }

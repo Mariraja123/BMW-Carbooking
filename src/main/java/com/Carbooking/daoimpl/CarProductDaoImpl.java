@@ -130,34 +130,7 @@ public class CarProductDaoImpl {
 		}
     	
      }
-//     public  String Searchproduct(CarProduct obj3) 
-//     {
-//    	 String search="Select car_id from car_details where car_name=? and fueltype=?";
-//    	 Connection Con;
-//    	
-//    	 String proId=null;
-//		try {
-//			 Con = Connectionutil.getDBconnection();
-//			 PreparedStatement stmt=Con.prepareStatement(search);
-//		    	stmt.setString(1, obj3.getCar_name());
-//		    	stmt.setString(2, obj3.getFuelType());;
-//		    	 ResultSet rs=stmt.executeQuery();
-//		    	
-//		    	 if(rs.next())
-//		    	 {
-//		             proId=rs.getString(1);
-//		    	 }
-//		    	 
-//		} catch (ClassNotFoundException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		return proId;
-//    	
-//     }
+
     	 public  static CarProduct selectproduct(CarProduct obj) throws ClassNotFoundException, SQLException
     	 {
     		
@@ -215,7 +188,7 @@ public class CarProductDaoImpl {
     				
     					List<CarProduct> searchcar=new ArrayList<CarProduct>();
     					CarProduct car=null;
-    					System.out.println("helo");
+    					
     					String showQuery="select car_name,fueltype,cartype from car_details where car_name=?";
     					 Connection Con=Connectionutil.getDBconnection();
     					 PreparedStatement ps =Con.prepareStatement(showQuery);
@@ -226,7 +199,7 @@ public class CarProductDaoImpl {
     					while(rs.next()) 
     					{
     						
-    						System.out.println("ygif"+rs.getString(1));
+    						
     				    car=new  CarProduct(rs.getString(1),rs.getString(2),rs.getString(3));
     				    searchcar.add(car);
     				  
